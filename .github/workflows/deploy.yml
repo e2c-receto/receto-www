@@ -18,11 +18,12 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Deploy to OVH via FTP
+      - name: Deploy to OVH via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
           local-dir: ./dist/
           server-dir: ./www/
