@@ -1,17 +1,217 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { plans } from '../data/pricing';
+import { faqItems } from '../data/faq';
+import { ctaNav } from '../data/navigation';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Accueil"
+  description="Recèto : l'application qui calcule la marge ET l'empreinte carbone de vos recettes. Pour les chefs qui veulent des recettes rentables et durables."
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight text-gray-950">
+          Vos recettes.<br/>
+          <span class="text-brand-500">Rentables et durables.</span>
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+          L'application qui calcule la marge ET l'empreinte carbone de vos recettes.
+          Fini le doigt mouillé, place à la certitude.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href={ctaNav.primary.href} class="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-brand-500 px-6 py-3 text-base font-semibold text-white hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/25">
+            {ctaNav.primary.label}
+          </a>
+          <a href={ctaNav.secondary.href} class="w-full sm:w-auto inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 text-base font-semibold text-gray-700 hover:border-brand-500 hover:text-brand-500 transition-colors">
+            {ctaNav.secondary.label}
+          </a>
+        </div>
+        <p class="mt-4 text-sm text-gray-500">Gratuit jusqu'à 3 recettes. Sans carte bancaire.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chiffre-choc -->
+  <section class="bg-gray-950 text-white py-12">
+    <div class="mx-auto max-w-4xl px-4 text-center">
+      <p class="text-3xl sm:text-4xl font-heading font-black">80%</p>
+      <p class="mt-2 text-lg text-gray-300">
+        des émissions de gaz à effet de serre de la restauration proviennent des ingrédients.
+      </p>
+      <p class="mt-1 text-sm text-gray-500">Source : ADEME / Agribalyse</p>
+    </div>
+  </section>
+
+  <!-- 3 piliers -->
+  <section class="py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl text-gray-950">Un outil, trois promesses</h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Recèto vous accompagne de la création de recette à la carte.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div class="text-center p-6">
+          <div class="mx-auto w-14 h-14 rounded-xl bg-brand-50 text-brand-500 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+            </svg>
+          </div>
+          <h3 class="text-xl text-gray-950 mb-3">Maîtrisez vos marges</h3>
+          <p class="text-gray-600">
+            Coefficient multiplicateur, coût matière, prix de revient : chaque recette devient un levier de rentabilité.
+          </p>
+        </div>
+        <div class="text-center p-6">
+          <div class="mx-auto w-14 h-14 rounded-xl bg-brand-50 text-brand-500 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+            </svg>
+          </div>
+          <h3 class="text-xl text-gray-950 mb-3">Anticipez les hausses de prix</h3>
+          <p class="text-gray-600">
+            Scannez vos factures fournisseurs et suivez l'évolution de vos coûts en temps réel.
+          </p>
+        </div>
+        <div class="text-center p-6">
+          <div class="mx-auto w-14 h-14 rounded-xl bg-brand-50 text-brand-500 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438a2.25 2.25 0 01-1.228 2.39l-.403.2a2.07 2.07 0 01-1.022.166l-1.162-.093" />
+            </svg>
+          </div>
+          <h3 class="text-xl text-gray-950 mb-3">Valorisez votre engagement</h3>
+          <p class="text-gray-600">
+            Affichez l'empreinte carbone de vos plats. Un argument différenciant pour vos clients.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tarifs -->
+  <section class="py-20 lg:py-24 bg-gray-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl text-gray-950">Des tarifs simples et transparents</h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Commencez gratuitement, évoluez quand vous en avez besoin.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {plans.map((plan) => (
+          <div class:list={[
+            "relative rounded-2xl p-8 bg-white shadow-sm border",
+            plan.featured ? "border-brand-500 ring-2 ring-brand-500" : "border-gray-200"
+          ]}>
+            {plan.featured && (
+              <span class="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full bg-brand-500 px-3 py-1 text-xs font-semibold text-white">
+                Recommandé
+              </span>
+            )}
+            <h3 class="text-lg font-semibold text-gray-950">{plan.name}</h3>
+            <div class="mt-4 flex items-baseline">
+              <span class="text-4xl font-heading font-black text-gray-950">
+                {plan.price === null ? 'Gratuit' : `${plan.price}\u20AC`}
+              </span>
+              {plan.period && <span class="ml-1 text-gray-500">{plan.period}</span>}
+            </div>
+            <p class="mt-2 text-sm text-gray-600">{plan.description}</p>
+            <a
+              href={plan.cta.href}
+              class:list={[
+                "mt-6 block w-full text-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors",
+                plan.featured
+                  ? "bg-brand-500 text-white hover:bg-brand-600"
+                  : "border border-gray-300 text-gray-700 hover:border-brand-500 hover:text-brand-500"
+              ]}
+            >
+              {plan.cta.label}
+            </a>
+            <ul class="mt-6 space-y-3">
+              {plan.features.map((feature) => (
+                <li class="flex items-start gap-2 text-sm">
+                  {feature.included === 'yes' ? (
+                    <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  ) : feature.included === 'limited' ? (
+                    <svg class="w-5 h-5 text-amber-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                    </svg>
+                  ) : (
+                    <svg class="w-5 h-5 text-gray-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  )}
+                  <span class:list={[feature.included === 'no' ? "text-gray-400" : "text-gray-700"]}>
+                    {feature.label}{feature.value ? ` (${feature.value})` : ''}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <p class="mt-8 text-center text-sm text-gray-500">
+        Tous les prix sont HT. Sans engagement, annulation à tout moment.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 lg:py-24">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl text-gray-950 text-center mb-12">Questions fréquentes</h2>
+      <div class="space-y-4">
+        {faqItems.map((item, i) => (
+          <details class="group rounded-xl border border-gray-200 overflow-hidden" open={i === 0}>
+            <summary class="flex cursor-pointer items-center justify-between p-5 font-medium text-gray-950 hover:bg-gray-50 transition-colors">
+              {item.question}
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </summary>
+            <div class="px-5 pb-5 text-gray-600 leading-relaxed">
+              {item.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(item => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer,
+        }
+      }))
+    })} />
+  </section>
+
+  <!-- CTA final -->
+  <section class="bg-brand-500 py-16">
+    <div class="mx-auto max-w-4xl px-4 text-center">
+      <h2 class="text-3xl sm:text-4xl text-white">Prêt à créer des recettes rentables ?</h2>
+      <p class="mt-4 text-lg text-brand-100">
+        Rejoignez les restaurateurs qui maîtrisent leurs marges et leur impact.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href={ctaNav.primary.href} class="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-base font-semibold text-brand-500 hover:bg-brand-50 transition-colors">
+          {ctaNav.primary.label}
+        </a>
+        <a href={ctaNav.secondary.href} class="w-full sm:w-auto inline-flex items-center justify-center rounded-lg border border-white/30 px-6 py-3 text-base font-semibold text-white hover:bg-white/10 transition-colors">
+          {ctaNav.secondary.label}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

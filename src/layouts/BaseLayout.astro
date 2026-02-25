@@ -1,0 +1,86 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  ogImage = '/images/og-default.jpg',
+  noindex = false,
+} = Astro.props;
+
+const siteName = 'Recèto';
+const fullTitle = title === 'Accueil' ? `${siteName} — Recettes rentables et durables` : `${title} | ${siteName}`;
+const canonical = Astro.url.href;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content={siteName} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Preload fonts -->
+  <link rel="preload" href="/fonts/Irregardless-Black.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/Lexend-Variable.woff2" as="font" type="font/woff2" crossorigin />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Recèto",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Application de gestion de recettes rentables et durables pour la restauration",
+    "url": "https://www.receto.fr",
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "0",
+      "highPrice": "69",
+      "priceCurrency": "EUR",
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "ECO2CHEF",
+      "url": "https://www.receto.fr",
+    }
+  })} />
+</head>
+<body class="bg-white antialiased">
+  <Header />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

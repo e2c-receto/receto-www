@@ -1,0 +1,64 @@
+---
+import { footerNav } from '../data/navigation';
+---
+
+<footer class="bg-gray-950 text-gray-400">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Brand -->
+      <div class="md:col-span-1">
+        <img src="/images/logo-receto-blanc.svg" alt="Recèto" class="h-7 w-auto mb-4" />
+        <p class="text-sm leading-relaxed">
+          Recettes rentables et durables pour la restauration.
+        </p>
+      </div>
+
+      <!-- Produit -->
+      <div>
+        <h3 class="text-sm font-semibold text-white mb-4">Produit</h3>
+        <ul class="space-y-2">
+          {footerNav.product.map((item) => (
+            <li>
+              <a href={item.href} class="text-sm hover:text-white transition-colors">{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Entreprise -->
+      <div>
+        <h3 class="text-sm font-semibold text-white mb-4">Entreprise</h3>
+        <ul class="space-y-2">
+          {footerNav.company.map((item) => (
+            <li>
+              <a href={item.href} class="text-sm hover:text-white transition-colors">{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-sm font-semibold text-white mb-4">Contact</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="mailto:contact@receto.fr" class="text-sm hover:text-white transition-colors">contact@receto.fr</a>
+          </li>
+          <li>
+            <a href="tel:+33667993446" class="text-sm hover:text-white transition-colors">06 67 99 34 46</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs">&copy; {new Date().getFullYear()} ECO2CHEF. Tous droits réservés.</p>
+      <div class="flex gap-4">
+        {footerNav.legal.map((item) => (
+          <a href={item.href} class="text-xs hover:text-white transition-colors">{item.label}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

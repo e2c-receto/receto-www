@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ctaNav } from '../data/navigation';
+---
+
+<BaseLayout
+  title="Produit"
+  description="Découvrez Recèto : fiches techniques, scan de factures, empreinte carbone et gestion de rentabilité pour la restauration."
+>
+  <section class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl text-gray-950">
+          Tout ce qu'il faut pour des <span class="text-brand-500">recettes maîtrisées</span>
+        </h1>
+        <p class="mt-6 text-lg text-gray-600">
+          De la création de recette au suivi de rentabilité, Recèto vous accompagne à chaque étape.
+        </p>
+      </div>
+
+      <!-- Features — à compléter avec screenshots Figma -->
+      <div class="mt-20 space-y-24">
+        <!-- Feature 1: Fiches techniques -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="text-sm font-semibold text-brand-500 uppercase tracking-wide">Fiches techniques</span>
+            <h2 class="mt-2 text-3xl text-gray-950">Créez des recettes rentables</h2>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Ajoutez vos ingrédients, définissez les quantités et obtenez instantanément le coût matière,
+              le coefficient multiplicateur et le prix de vente suggéré.
+            </p>
+          </div>
+          <div class="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400">
+            <!-- Screenshot à ajouter -->
+            Capture d'écran à venir
+          </div>
+        </div>
+
+        <!-- Feature 2: Scan factures -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400">
+            Capture d'écran à venir
+          </div>
+          <div class="order-1 lg:order-2">
+            <span class="text-sm font-semibold text-brand-500 uppercase tracking-wide">Scan de factures</span>
+            <h2 class="mt-2 text-3xl text-gray-950">Importez vos factures en un clic</h2>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Photographiez ou importez vos factures fournisseurs.
+              Notre technologie extrait automatiquement les ingrédients, quantités et prix.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 3: Empreinte carbone -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="text-sm font-semibold text-brand-500 uppercase tracking-wide">Impact environnemental</span>
+            <h2 class="mt-2 text-3xl text-gray-950">Mesurez votre empreinte carbone</h2>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Grâce à la base Agribalyse de l'ADEME, chaque recette affiche son empreinte CO2.
+              Valorisez votre engagement auprès de vos clients.
+            </p>
+          </div>
+          <div class="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400">
+            Capture d'écran à venir
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-20 text-center">
+        <a href={ctaNav.primary.href} class="inline-flex items-center rounded-lg bg-brand-500 px-6 py-3 text-base font-semibold text-white hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/25">
+          {ctaNav.primary.label}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

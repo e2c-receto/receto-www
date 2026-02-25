@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="À propos"
+  description="Découvrez l'équipe derrière Recèto. Notre mission : rendre la restauration plus rentable et plus durable."
+>
+  <section class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl text-gray-950">
+          Rendre la restauration <span class="text-brand-500">rentable et durable</span>
+        </h1>
+        <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+          Recèto est né d'un constat simple : les chefs passent trop de temps à calculer
+          leurs coûts au doigt mouillé, et aucun outil ne leur permet de mesurer simplement
+          l'impact environnemental de leurs recettes.
+        </p>
+      </div>
+
+      <!-- Mission -->
+      <div class="mt-20 max-w-3xl mx-auto">
+        <h2 class="text-2xl text-gray-950 mb-4">Notre mission</h2>
+        <p class="text-gray-600 leading-relaxed">
+          Donner aux restaurateurs les outils pour créer des recettes rentables
+          tout en mesurant et réduisant leur empreinte carbone.
+          Nous croyons que performance économique et responsabilité environnementale
+          ne sont pas incompatibles — au contraire.
+        </p>
+      </div>
+
+      <!-- Équipe — à compléter avec photos -->
+      <div class="mt-20">
+        <h2 class="text-2xl text-gray-950 text-center mb-12">L'équipe</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          {[
+            { name: 'Emmanuel', role: 'CEO' },
+            { name: 'Baptiste', role: 'DG / Tech' },
+            { name: 'Vincent', role: 'Associé' },
+            { name: 'Jérôme', role: 'Associé' },
+          ].map((member) => (
+            <div class="text-center">
+              <div class="w-24 h-24 rounded-full bg-gray-100 mx-auto mb-4 flex items-center justify-center text-gray-400 text-2xl font-heading font-black">
+                {member.name[0]}
+              </div>
+              <h3 class="font-semibold text-gray-950">{member.name}</h3>
+              <p class="text-sm text-gray-500">{member.role}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Partenaires -->
+      <div class="mt-20 text-center">
+        <h2 class="text-2xl text-gray-950 mb-8">Ils nous font confiance</h2>
+        <div class="flex flex-wrap items-center justify-center gap-8 text-gray-400">
+          <span class="text-sm font-medium">CCI Vaucluse</span>
+          <span class="text-sm font-medium">Talenz</span>
+          <span class="text-sm font-medium">Agribalyse / ADEME</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

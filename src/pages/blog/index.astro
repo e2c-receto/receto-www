@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout
+  title="Blog"
+  description="Conseils, astuces et actualités pour les restaurateurs. Rentabilité, gestion des coûts, empreinte carbone."
+>
+  <section class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <h1 class="text-4xl sm:text-5xl text-gray-950">Blog</h1>
+        <p class="mt-6 text-lg text-gray-600">
+          Conseils, astuces et actualités pour les restaurateurs.
+        </p>
+      </div>
+
+      {posts.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {posts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="group block rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+              {post.data.image && (
+                <img src={post.data.image} alt="" class="w-full aspect-video object-cover" />
+              )}
+              <div class="p-6">
+                <time class="text-xs text-gray-500">{post.data.date.toLocaleDateString('fr-FR')}</time>
+                <h2 class="mt-2 text-lg font-semibold text-gray-950 group-hover:text-brand-500 transition-colors">
+                  {post.data.title}
+                </h2>
+                <p class="mt-2 text-sm text-gray-600 line-clamp-3">{post.data.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-12 text-gray-500">
+          <p>Les premiers articles arrivent bientôt.</p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

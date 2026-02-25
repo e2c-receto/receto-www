@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Réserver une démo"
+  description="Réservez une démonstration personnalisée de Recèto avec notre équipe. Découvrez comment maîtriser la rentabilité et l'empreinte carbone de vos recettes."
+>
+  <section class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <!-- Texte -->
+        <div>
+          <h1 class="text-4xl sm:text-5xl text-gray-950">
+            Discutons de vos <span class="text-brand-500">besoins</span>
+          </h1>
+          <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+            Réservez un créneau de 20 minutes avec notre équipe.
+            Nous vous montrons Recèto en action avec vos propres contraintes.
+          </p>
+          <div class="mt-8 space-y-4">
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              <p class="text-gray-600">Démo personnalisée sur vos recettes</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              <p class="text-gray-600">20 minutes, sans engagement</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              <p class="text-gray-600">Réponse à toutes vos questions</p>
+            </div>
+          </div>
+
+          <!-- Contact direct -->
+          <div class="mt-10 p-6 rounded-xl bg-gray-50 border border-gray-200">
+            <p class="font-semibold text-gray-950 mb-2">Vous préférez nous contacter directement ?</p>
+            <p class="text-sm text-gray-600">
+              <a href="mailto:contact@receto.fr" class="text-brand-500 hover:underline">contact@receto.fr</a>
+              <br/>
+              <a href="tel:+33667993446" class="text-brand-500 hover:underline">06 67 99 34 46</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Calendly embed placeholder -->
+        <div class="bg-gray-50 rounded-2xl border border-gray-200 p-8 flex items-center justify-center min-h-[500px]">
+          <div class="text-center text-gray-400">
+            <p class="text-lg font-medium">Calendly</p>
+            <p class="mt-2 text-sm">L'embed de réservation sera intégré ici.</p>
+            <!-- TODO: remplacer par l'embed Calendly de Laura -->
+            <!-- <div class="calendly-inline-widget" data-url="https://calendly.com/..." style="min-width:320px;height:630px;"></div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

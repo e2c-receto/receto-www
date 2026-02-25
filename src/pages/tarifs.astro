@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { plans } from '../data/pricing';
+import { faqItems } from '../data/faq';
+---
+
+<BaseLayout
+  title="Tarifs"
+  description="Tarifs Recèto : un plan gratuit pour tester, des formules à partir de 39€/mois pour les restaurateurs. Sans engagement."
+>
+  <section class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h1 class="text-4xl sm:text-5xl text-gray-950">
+          Des tarifs <span class="text-brand-500">simples et transparents</span>
+        </h1>
+        <p class="mt-6 text-lg text-gray-600">
+          Commencez gratuitement, évoluez quand vous en avez besoin. Sans engagement.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {plans.map((plan) => (
+          <div class:list={[
+            "relative rounded-2xl p-8 bg-white shadow-sm border",
+            plan.featured ? "border-brand-500 ring-2 ring-brand-500" : "border-gray-200"
+          ]}>
+            {plan.featured && (
+              <span class="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full bg-brand-500 px-3 py-1 text-xs font-semibold text-white">
+                Recommandé
+              </span>
+            )}
+            <h2 class="text-lg font-semibold text-gray-950">{plan.name}</h2>
+            <div class="mt-4 flex items-baseline">
+              <span class="text-4xl font-heading font-black text-gray-950">
+                {plan.price === null ? 'Gratuit' : `${plan.price}\u20AC`}
+              </span>
+              {plan.period && <span class="ml-1 text-gray-500">{plan.period}</span>}
+            </div>
+            <p class="mt-2 text-sm text-gray-600">{plan.description}</p>
+            <a
+              href={plan.cta.href}
+              class:list={[
+                "mt-6 block w-full text-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors",
+                plan.featured
+                  ? "bg-brand-500 text-white hover:bg-brand-600"
+                  : "border border-gray-300 text-gray-700 hover:border-brand-500 hover:text-brand-500"
+              ]}
+            >
+              {plan.cta.label}
+            </a>
+            <ul class="mt-6 space-y-3">
+              {plan.features.map((feature) => (
+                <li class="flex items-start gap-2 text-sm">
+                  {feature.included === 'yes' ? (
+                    <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  ) : feature.included === 'limited' ? (
+                    <svg class="w-5 h-5 text-amber-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                    </svg>
+                  ) : (
+                    <svg class="w-5 h-5 text-gray-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  )}
+                  <span class:list={[feature.included === 'no' ? "text-gray-400" : "text-gray-700"]}>
+                    {feature.label}{feature.value ? ` (${feature.value})` : ''}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <p class="mt-8 text-center text-sm text-gray-500">
+        Tous les prix sont HT. Sans engagement, annulation à tout moment.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ pricing -->
+  <section class="py-16 bg-gray-50">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl text-gray-950 text-center mb-8">Questions sur les tarifs</h2>
+      <div class="space-y-4">
+        {faqItems.filter((_, i) => [3, 6].includes(i)).map((item) => (
+          <details class="group rounded-xl border border-gray-200 bg-white overflow-hidden">
+            <summary class="flex cursor-pointer items-center justify-between p-5 font-medium text-gray-950 hover:bg-gray-50 transition-colors">
+              {item.question}
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </summary>
+            <div class="px-5 pb-5 text-gray-600 leading-relaxed">
+              {item.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
