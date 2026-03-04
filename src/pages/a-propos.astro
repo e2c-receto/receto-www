@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { ctaNav } from '../data/navigation';
 ---
 
 <BaseLayout
   title="À propos"
-  description="Découvrez l'équipe derrière Recèto. Notre mission : rendre la restauration plus rentable et plus durable."
+  description="Découvrez l'équipe derrière Recèto. Notre mission : rendre la restauration plus rentable et plus durable, grâce à un outil pensé par et pour les chefs."
 >
+  <!-- Hero -->
   <section class="py-20 lg:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center">
@@ -13,52 +15,207 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           Rendre la restauration <span class="text-brand-500">rentable et durable</span>
         </h1>
         <p class="mt-6 text-lg text-gray-600 leading-relaxed">
-          Recèto est né d'un constat simple : les chefs passent trop de temps à calculer
-          leurs coûts au doigt mouillé, et aucun outil ne leur permet de mesurer simplement
-          l'impact environnemental de leurs recettes.
+          Recèto est né d'un constat simple&nbsp;: trop de chefs calculent encore leurs coûts
+          au doigt mouillé. Et aucun outil ne leur permettait de mesurer simplement
+          l'impact environnemental de leurs recettes. On a décidé de changer ça.
         </p>
       </div>
+    </div>
+  </section>
 
-      <!-- Mission -->
-      <div class="mt-20 max-w-3xl mx-auto">
-        <h2 class="text-2xl text-gray-950 mb-4">Notre mission</h2>
-        <p class="text-gray-600 leading-relaxed">
+  <!-- Notre histoire -->
+  <section class="py-16 lg:py-24 bg-gray-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <h2 class="text-3xl sm:text-4xl text-gray-950 mb-6">Notre histoire</h2>
+          <div class="space-y-4 text-gray-600 leading-relaxed">
+            <p>
+              Tout commence à Avignon, au croisement de deux mondes&nbsp;: la tech et la restauration.
+              En échangeant avec des chefs, nous avons découvert une réalité surprenante&nbsp;:
+              la plupart gèrent leurs marges avec un tableur — quand ils les gèrent.
+            </p>
+            <p>
+              Pourtant, la maîtrise du coût matière est le nerf de la guerre en restauration.
+              Un coefficient mal calculé, un fournisseur qui augmente ses prix sans qu'on s'en rende compte,
+              et la marge fond comme neige au soleil.
+            </p>
+            <p>
+              En parallèle, de plus en plus de restaurateurs veulent s'engager pour l'environnement,
+              mais sans données fiables, impossible de mesurer ou de communiquer sur son impact.
+              C'est là qu'ECO2CHEF est né, avec une conviction&nbsp;:
+              <strong class="text-gray-950">rentabilité et responsabilité vont de pair.</strong>
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center justify-center">
+          <div class="relative w-full max-w-sm">
+            <div class="absolute inset-0 bg-brand-500/10 rounded-2xl transform rotate-3"></div>
+            <div class="relative bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <div class="space-y-6">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-500 font-heading font-black text-sm">25</div>
+                  <div>
+                    <p class="font-semibold text-gray-950">2025 — Le déclic</p>
+                    <p class="text-sm text-gray-500">Création d'ECO2CHEF, premiers tests terrain avec des restaurateurs engagés</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-500 font-heading font-black text-sm">25</div>
+                  <div>
+                    <p class="font-semibold text-gray-950">2025 — Premiers partenaires</p>
+                    <p class="text-sm text-gray-500">Pilote avec la CCI Vaucluse et La Fabuleuse Cantine</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center text-white font-heading font-black text-sm">26</div>
+                  <div>
+                    <p class="font-semibold text-gray-950">2026 — Lancement commercial</p>
+                    <p class="text-sm text-gray-500">Nouvelle offre, réseau commercial, et ambition nationale</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Valeurs -->
+  <section class="py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl text-gray-950 mb-6">Notre mission</h2>
+        <p class="text-lg text-gray-600 leading-relaxed">
           Donner aux restaurateurs les outils pour créer des recettes rentables
           tout en mesurant et réduisant leur empreinte carbone.
           Nous croyons que performance économique et responsabilité environnementale
-          ne sont pas incompatibles — au contraire.
+          ne sont pas incompatibles — <strong class="text-gray-950">au contraire, elles se renforcent mutuellement.</strong>
         </p>
       </div>
-
-      <!-- Équipe — à compléter avec photos -->
-      <div class="mt-20">
-        <h2 class="text-2xl text-gray-950 text-center mb-12">L'équipe</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
-          {[
-            { name: 'Emmanuel', role: 'CEO' },
-            { name: 'Baptiste', role: 'DG / Tech' },
-            { name: 'Vincent', role: 'Associé' },
-            { name: 'Jérôme', role: 'Associé' },
-          ].map((member) => (
-            <div class="text-center">
-              <div class="w-24 h-24 rounded-full bg-gray-100 mx-auto mb-4 flex items-center justify-center text-gray-400 text-2xl font-heading font-black">
-                {member.name[0]}
-              </div>
-              <h3 class="font-semibold text-gray-950">{member.name}</h3>
-              <p class="text-sm text-gray-500">{member.role}</p>
-            </div>
-          ))}
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="text-center p-6">
+          <div class="w-14 h-14 rounded-xl bg-brand-50 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-brand-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-950 mb-2">Transparence des coûts</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Chaque chef mérite de savoir exactement combien lui rapporte chaque plat. Fini le calcul au feeling.
+          </p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-14 h-14 rounded-xl bg-brand-50 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-brand-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-950 mb-2">Impact mesurable</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Grâce à la base Agribalyse de l'ADEME, on transforme l'engagement écologique en données concrètes.
+          </p>
+        </div>
+        <div class="text-center p-6">
+          <div class="w-14 h-14 rounded-xl bg-brand-50 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-brand-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-950 mb-2">Simplicité d'abord</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Un outil pensé pour le terrain. Pas un logiciel de gestion usine à gaz, mais un copilote du quotidien.
+          </p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Partenaires -->
-      <div class="mt-20 text-center">
-        <h2 class="text-2xl text-gray-950 mb-8">Ils nous font confiance</h2>
-        <div class="flex flex-wrap items-center justify-center gap-8 text-gray-400">
-          <span class="text-sm font-medium">CCI Vaucluse</span>
-          <span class="text-sm font-medium">Talenz</span>
-          <span class="text-sm font-medium">Agribalyse / ADEME</span>
-        </div>
+  <!-- Équipe -->
+  <section class="py-16 lg:py-24 bg-gray-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl text-gray-950 mb-4">L'équipe</h2>
+        <p class="text-lg text-gray-600 leading-relaxed">
+          Quatre associés complémentaires, unis par la conviction que la restauration
+          peut être à la fois rentable et responsable.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        {[
+          {
+            name: 'Emmanuel',
+            role: 'CEO',
+            desc: 'Pilote la vision et la stratégie d\'ECO2CHEF. Entrepreneur engagé, il porte la mission écologique du projet.',
+            initials: 'E',
+          },
+          {
+            name: 'Baptiste',
+            role: 'Directeur Général & Tech',
+            desc: 'Architecte de la solution Recèto. Il conçoit le produit et orchestre le développement technique.',
+            initials: 'B',
+          },
+          {
+            name: 'Vincent',
+            role: 'Stratégie commerciale',
+            desc: 'En charge du positionnement marché, de la tarification et du déploiement commercial.',
+            initials: 'V',
+          },
+          {
+            name: 'Jérôme',
+            role: 'Design & Communication',
+            desc: 'Crée l\'identité visuelle de Recèto et veille à une expérience utilisateur fluide et professionnelle.',
+            initials: 'J',
+          },
+        ].map((member) => (
+          <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
+            <div class="w-20 h-20 rounded-full bg-brand-50 mx-auto mb-4 flex items-center justify-center text-brand-500 text-2xl font-heading font-black">
+              {member.initials}
+            </div>
+            <h3 class="text-lg font-semibold text-gray-950">{member.name}</h3>
+            <p class="text-sm font-medium text-brand-500 mb-3">{member.role}</p>
+            <p class="text-sm text-gray-500 leading-relaxed">{member.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Partenaires -->
+  <section class="py-16 lg:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-4xl text-gray-950 text-center mb-4">Ils nous font confiance</h2>
+      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        Des partenaires institutionnels et des restaurateurs engagés nous accompagnent depuis le début.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center justify-items-center">
+        <img src="/images/partners/cci.png" alt="CCI Vaucluse" class="h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy" />
+        <img src="/images/partners/talenz.png" alt="Talenz" class="h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy" />
+        <img src="/images/partners/grand-avignon.png" alt="Grand Avignon" class="h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy" />
+      </div>
+      <div class="mt-12 text-center">
+        <p class="text-sm text-gray-500">
+          Base d'impact environnemental fournie par <strong class="text-gray-700">Agribalyse</strong> (ADEME)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-500 py-16">
+    <div class="mx-auto max-w-4xl px-4 text-center">
+      <h2 class="text-3xl sm:text-4xl text-white">Envie de nous rejoindre&nbsp;?</h2>
+      <p class="mt-4 text-lg text-brand-100">
+        Testez Recèto gratuitement et rejoignez les restaurateurs qui maîtrisent leurs marges et leur impact.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href={ctaNav.primary.href} class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-base font-semibold text-brand-500 hover:bg-brand-50 transition-colors">
+          {ctaNav.primary.label}
+        </a>
+        <a href={ctaNav.secondary.href} class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl border border-white/30 px-6 py-3 text-base font-semibold text-white hover:bg-white/10 transition-colors">
+          {ctaNav.secondary.label}
+        </a>
       </div>
     </div>
   </section>

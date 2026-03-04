@@ -18,51 +18,118 @@ import { ctaNav } from '../data/navigation';
         </p>
       </div>
 
-      <!-- Features — à compléter avec screenshots Figma -->
+      <!-- Features — screenshots à ajouter quand Figma ready -->
       <div class="mt-20 space-y-24">
         <!-- Feature 1: Fiches techniques -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <span class="text-sm font-semibold text-brand-500 uppercase tracking-wide">Fiches techniques</span>
-            <h2 class="mt-2 text-3xl text-gray-950">Créez des recettes rentables</h2>
+            <h2 class="mt-2 text-3xl text-gray-950">Connaissez le vrai coût de chaque plat</h2>
             <p class="mt-4 text-gray-600 leading-relaxed">
               Ajoutez vos ingrédients, définissez les quantités et obtenez instantanément le coût matière,
-              le coefficient multiplicateur et le prix de vente suggéré.
+              le coefficient multiplicateur et le prix de vente suggéré. Fini le calcul au feeling.
             </p>
+            <ul class="mt-6 space-y-2 text-gray-600">
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Coût matière par portion calculé en temps réel
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Coefficient et prix de vente suggérés
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Export PDF pour vos fiches techniques
+              </li>
+            </ul>
           </div>
           <div class="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400">
-            <!-- Screenshot à ajouter -->
             Capture d'écran à venir
           </div>
         </div>
 
-        <!-- Feature 2: Scan factures -->
+        <!-- Feature 2: Suivi fournisseurs -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div class="order-2 lg:order-1 bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400">
             Capture d'écran à venir
           </div>
           <div class="order-1 lg:order-2">
+            <span class="text-sm font-semibold text-brand-500 uppercase tracking-wide">Suivi fournisseurs</span>
+            <h2 class="mt-2 text-3xl text-gray-950">Anticipez les hausses de prix</h2>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Centralisez vos fournisseurs, suivez l'évolution des prix de vos produits bruts et recevez des alertes
+              quand un tarif change. Négociez en connaissance de cause.
+            </p>
+            <ul class="mt-6 space-y-2 text-gray-600">
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Historique des prix par ingrédient
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Alertes en cas de variation significative
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Impact automatique sur vos marges de recettes
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 3: Scan factures -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
             <span class="text-sm font-semibold text-brand-500 uppercase tracking-wide">Scan de factures</span>
             <h2 class="mt-2 text-3xl text-gray-950">Importez vos factures en un clic</h2>
             <p class="mt-4 text-gray-600 leading-relaxed">
               Photographiez ou importez vos factures fournisseurs.
               Notre technologie extrait automatiquement les ingrédients, quantités et prix.
+              Plus de saisie manuelle.
             </p>
-          </div>
-        </div>
-
-        <!-- Feature 3: Empreinte carbone -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <span class="text-sm font-semibold text-brand-500 uppercase tracking-wide">Impact environnemental</span>
-            <h2 class="mt-2 text-3xl text-gray-950">Mesurez votre empreinte carbone</h2>
-            <p class="mt-4 text-gray-600 leading-relaxed">
-              Grâce à la base Agribalyse de l'ADEME, chaque recette affiche son empreinte CO2.
-              Valorisez votre engagement auprès de vos clients.
-            </p>
+            <ul class="mt-6 space-y-2 text-gray-600">
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Extraction automatique par photo ou PDF
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Mise à jour automatique des prix fournisseurs
+              </li>
+            </ul>
           </div>
           <div class="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400">
             Capture d'écran à venir
+          </div>
+        </div>
+
+        <!-- Feature 4: Empreinte carbone -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400">
+            Capture d'écran à venir
+          </div>
+          <div class="order-1 lg:order-2">
+            <span class="text-sm font-semibold text-brand-500 uppercase tracking-wide">Impact environnemental</span>
+            <h2 class="mt-2 text-3xl text-gray-950">Mesurez l'empreinte carbone de vos recettes</h2>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Grâce à la base Agribalyse de l'ADEME, chaque recette affiche automatiquement son empreinte CO2.
+              Valorisez votre démarche auprès de vos clients et préparez les futures obligations réglementaires.
+            </p>
+            <ul class="mt-6 space-y-2 text-gray-600">
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Base Agribalyse (ADEME) — la référence française
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Score carbone par plat, visible sur la fiche technique
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                Inclus dans toutes les offres, y compris Découverte
+              </li>
+            </ul>
           </div>
         </div>
       </div>

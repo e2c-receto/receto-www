@@ -7,14 +7,14 @@ export const mainNav = [
 
 export const ctaNav = {
   primary: { label: 'Essayer gratuitement', href: 'https://app.receto.fr' },
-  secondary: { label: 'Réserver une démo', href: '/demo' },
+  secondary: { label: 'Demander une démo', href: '/demo' },
 } as const;
 
 export const footerNav = {
   product: [
     { label: 'Produit', href: '/produit' },
     { label: 'Tarifs', href: '/tarifs' },
-    { label: 'Réserver une démo', href: '/demo' },
+    { label: 'Demander une démo', href: '/demo' },
   ],
   company: [
     { label: 'À propos', href: '/a-propos' },

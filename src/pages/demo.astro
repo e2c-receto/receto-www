@@ -15,27 +15,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             Discutons de vos <span class="text-brand-500">besoins</span>
           </h1>
           <p class="mt-6 text-lg text-gray-600 leading-relaxed">
-            Réservez un créneau de 20 minutes avec notre équipe.
-            Nous vous montrons Recèto en action avec vos propres contraintes.
+            Réservez un créneau de 30 minutes avec notre équipe.
+            On vous montre Recèto en action sur vos propres recettes.
           </p>
           <div class="mt-8 space-y-4">
             <div class="flex items-start gap-3">
               <svg class="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
-              <p class="text-gray-600">Démo personnalisée sur vos recettes</p>
+              <p class="text-gray-600">Démo personnalisée avec vos recettes et vos fournisseurs</p>
             </div>
             <div class="flex items-start gap-3">
               <svg class="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
-              <p class="text-gray-600">20 minutes, sans engagement</p>
+              <p class="text-gray-600">30 minutes, sans engagement, en visio ou sur place</p>
             </div>
             <div class="flex items-start gap-3">
               <svg class="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
-              <p class="text-gray-600">Réponse à toutes vos questions</p>
+              <p class="text-gray-600">On répond à toutes vos questions sur le produit et les tarifs</p>
             </div>
           </div>
 
@@ -50,14 +50,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </div>
 
-        <!-- Calendly embed placeholder -->
-        <div class="bg-gray-50 rounded-2xl border border-gray-200 p-8 flex items-center justify-center min-h-[500px]">
-          <div class="text-center text-gray-400">
-            <p class="text-lg font-medium">Calendly</p>
-            <p class="mt-2 text-sm">L'embed de réservation sera intégré ici.</p>
-            <!-- TODO: remplacer par l'embed Calendly de Laura -->
-            <!-- <div class="calendly-inline-widget" data-url="https://calendly.com/..." style="min-width:320px;height:630px;"></div> -->
-          </div>
+        <!-- Calendly embed -->
+        <div class="rounded-2xl overflow-hidden min-h-[660px]">
+          <div
+            class="calendly-inline-widget"
+            data-url="https://calendly.com/baptiste-c-eco2chef/30min?hide_gdpr_banner=1&primary_color=155dfc"
+            style="min-width:320px;height:660px;"
+          ></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
       </div>
     </div>
