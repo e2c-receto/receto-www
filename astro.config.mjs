@@ -3,9 +3,12 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
+const isGHPages = process.env.GITHUB_PAGES === 'true';
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.receto.fr',
+  site: isGHPages ? 'https://e2c-receto.github.io' : 'https://www.receto.fr',
+  base: isGHPages ? '/receto-www' : '/',
   output: 'static',
   integrations: [
     sitemap({
@@ -14,5 +17,8 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: ['requesting-plans-latin-boys.trycloudflare.com'],
+    },
   },
 });

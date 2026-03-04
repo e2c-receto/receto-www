@@ -2,53 +2,61 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { plans } from '../data/pricing';
 import { faqItems } from '../data/faq';
+import { ctaNav } from '../data/navigation';
 ---
 
 <BaseLayout
   title="Tarifs"
   description="Tarifs Recèto : un plan gratuit pour tester, des formules à partir de 39€/mois pour les restaurateurs. Sans engagement."
 >
+  <!-- Hero tarifs -->
   <section class="py-20 lg:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <h1 class="text-4xl sm:text-5xl text-gray-950">
-          Des tarifs <span class="text-brand-500">simples et transparents</span>
+      <div class="max-w-3xl">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl text-gray-950">
+          Une seule offre
         </h1>
-        <p class="mt-6 text-lg text-gray-600">
-          Commencez gratuitement, évoluez quand vous en avez besoin. Sans engagement.
+        <p class="mt-4 text-xl sm:text-2xl font-medium text-gray-950">
+          Un forfait mensuel ou annuel
+        </p>
+        <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+          Profitez d'une offre unique et transparente pour les restaurateurs. Recèto vous propose un forfait mensuel ou annuel, sans frais cachés, adapté à la gestion et l'optimisation de vos recettes.
+        </p>
+        <p class="mt-4 text-lg text-gray-600 leading-relaxed">
+          Bénéficiez d'un <strong class="text-gray-950">accès complet</strong> à notre outil de pilotage, avec la possibilité de choisir le palier qui convient à votre établissement pour augmenter votre marge et maîtriser votre impact environnemental.
         </p>
       </div>
+    </div>
+  </section>
 
+  <!-- Pricing cards -->
+  <section class="relative bg-brand-500 py-20 lg:py-28 overflow-hidden">
+    <img
+      src="/images/wave-blue.png"
+      alt=""
+      class="absolute right-0 top-0 h-full w-auto object-cover pointer-events-none"
+      aria-hidden="true"
+    />
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {plans.map((plan) => (
           <div class:list={[
-            "relative rounded-2xl p-8 bg-white shadow-sm border",
-            plan.featured ? "border-brand-500 ring-2 ring-brand-500" : "border-gray-200"
+            "relative rounded-2xl p-8 bg-white shadow-sm",
+            plan.featured ? "ring-4 ring-white/50 scale-105" : ""
           ]}>
             {plan.featured && (
-              <span class="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full bg-brand-500 px-3 py-1 text-xs font-semibold text-white">
+              <span class="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-500">
                 Recommandé
               </span>
             )}
-            <h2 class="text-lg font-semibold text-gray-950">{plan.name}</h2>
+            <p class="text-sm font-semibold text-brand-500 uppercase tracking-wide">{plan.name}</p>
             <div class="mt-4 flex items-baseline">
-              <span class="text-4xl font-heading font-black text-gray-950">
+              <span class="text-5xl font-heading font-black text-gray-950">
                 {plan.price === null ? 'Gratuit' : `${plan.price}\u20AC`}
               </span>
-              {plan.period && <span class="ml-1 text-gray-500">{plan.period}</span>}
+              {plan.period && <span class="ml-2 text-gray-500">{plan.period}</span>}
             </div>
-            <p class="mt-2 text-sm text-gray-600">{plan.description}</p>
-            <a
-              href={plan.cta.href}
-              class:list={[
-                "mt-6 block w-full text-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors",
-                plan.featured
-                  ? "bg-brand-500 text-white hover:bg-brand-600"
-                  : "border border-gray-300 text-gray-700 hover:border-brand-500 hover:text-brand-500"
-              ]}
-            >
-              {plan.cta.label}
-            </a>
+            <p class="mt-3 text-sm text-gray-600">{plan.description}</p>
             <ul class="mt-6 space-y-3">
               {plan.features.map((feature) => (
                 <li class="flex items-start gap-2 text-sm">
@@ -71,21 +79,56 @@ import { faqItems } from '../data/faq';
                 </li>
               ))}
             </ul>
+            <a
+              href={plan.cta.href}
+              class:list={[
+                "mt-8 block w-full text-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors",
+                plan.featured
+                  ? "bg-brand-500 text-white hover:bg-brand-600"
+                  : "border border-gray-300 text-gray-700 hover:border-brand-500 hover:text-brand-500"
+              ]}
+            >
+              {plan.cta.label}
+            </a>
           </div>
         ))}
       </div>
-
-      <p class="mt-8 text-center text-sm text-gray-500">
+      <p class="mt-8 text-center text-sm text-white/70">
         Tous les prix sont HT. Sans engagement, annulation à tout moment.
       </p>
+    </div>
+  </section>
 
-      <!-- ROI -->
-      <div class="mt-16 max-w-2xl mx-auto text-center p-8 bg-brand-50 rounded-2xl border border-brand-100">
-        <p class="text-lg text-gray-950 font-medium">
-          Si Recèto vous permet d'identifier <strong>un seul plat mal pricé</strong>, vous rentabilisez votre abonnement dès le premier mois.
+  <!-- Création base de données -->
+  <section class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <h2 class="text-3xl sm:text-4xl text-gray-950">Création base de données</h2>
+          <p class="mt-6 text-gray-600 leading-relaxed">
+            Avec ces futures mises à jour, bénéficiez d'une solution globale pour faire progresser votre entreprise dans une démarche responsable et profitable.
+          </p>
+        </div>
+        <div class="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400">
+          Capture d'écran à venir
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bénéfices de Recèto -->
+  <section class="bg-brand-500 py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl text-white">
+        <h2 class="text-3xl sm:text-4xl">Bénéfices de Recèto</h2>
+        <p class="mt-6 text-lg leading-relaxed opacity-90">
+          Notre service est créateur de valeur pour les restaurateurs, traiteurs et chefs. Optimisez vos achats, réduisez vos coûts matières et augmentez votre performance.
         </p>
-        <p class="mt-3 text-gray-600">
-          L'Essentiel revient à 1,30&euro; par jour — moins qu'un café.
+        <p class="mt-6 text-lg leading-relaxed opacity-90">
+          <strong class="text-white">1&nbsp;% d'optimisation des coûts matières, c'est 2&nbsp;000&nbsp;€ de rentabilité supplémentaire</strong> pour un restaurant avec 200&nbsp;000&nbsp;€ de chiffre d'affaires annuel.
+        </p>
+        <p class="mt-6 text-lg leading-relaxed opacity-90">
+          Recèto, c'est un outil puissant pour <strong class="text-white">améliorer votre marge</strong>, piloter vos fiches techniques et <strong class="text-white">engager votre démarche éco-responsable</strong>.
         </p>
       </div>
     </div>
@@ -116,7 +159,7 @@ import { faqItems } from '../data/faq';
   <!-- CTA -->
   <section class="bg-brand-500 py-16">
     <div class="mx-auto max-w-4xl px-4 text-center">
-      <h2 class="text-3xl text-white">Une question sur nos offres ?</h2>
+      <h2 class="text-3xl text-white">Une question sur nos offres&nbsp;?</h2>
       <p class="mt-4 text-lg text-brand-100">
         Réservez une démo de 30 minutes et on vous aide à choisir la bonne formule.
       </p>
