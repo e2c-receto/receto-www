@@ -1,8 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { plans } from '../data/pricing';
-import { faqItems } from '../data/faq';
-import { ctaNav } from '../data/navigation';
 import { url } from '../utils/url';
 ---
 
@@ -27,6 +25,29 @@ import { url } from '../utils/url';
           Bénéficiez d'un <strong class="text-gray-950">accès complet</strong> à notre outil de pilotage, avec la possibilité de choisir le palier qui convient à votre établissement pour augmenter votre marge et maîtriser votre impact environnemental.
         </p>
       </div>
+    </div>
+  </section>
+
+  <!-- Toggle Mensuel / Annuel -->
+  <section class="pb-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center rounded-full bg-gray-100 p-1">
+        <button
+          id="btn-mensuel"
+          class="rounded-full px-6 py-2 text-sm font-semibold bg-brand-500 text-white transition-colors"
+          data-period="mensuel"
+        >
+          Mensuel
+        </button>
+        <button
+          id="btn-annuel"
+          class="rounded-full px-6 py-2 text-sm font-semibold text-gray-600 hover:text-gray-900 transition-colors"
+          data-period="annuel"
+        >
+          Annuel
+        </button>
+      </div>
+      <p class="mt-3 text-sm text-gray-500">Économisez 2 mois avec le forfait annuel</p>
     </div>
   </section>
 
@@ -135,40 +156,18 @@ import { url } from '../utils/url';
     </div>
   </section>
 
-  <!-- FAQ pricing -->
-  <section class="py-16 bg-gray-50">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl text-gray-950 text-center mb-8">Questions sur les tarifs</h2>
-      <div class="space-y-4">
-        {faqItems.filter((_, i) => [3, 6].includes(i)).map((item) => (
-          <details class="group rounded-xl border border-gray-200 bg-white overflow-hidden">
-            <summary class="flex cursor-pointer items-center justify-between p-5 font-medium text-gray-950 hover:bg-gray-50 transition-colors">
-              {item.question}
-              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-              </svg>
-            </summary>
-            <div class="px-5 pb-5 text-gray-600 leading-relaxed">
-              {item.answer}
-            </div>
-          </details>
-        ))}
-      </div>
-    </div>
-  </section>
+  <script>
+    const btnMensuel = document.getElementById('btn-mensuel');
+    const btnAnnuel = document.getElementById('btn-annuel');
 
-  <!-- CTA -->
-  <section class="bg-brand-500 py-16">
-    <div class="mx-auto max-w-4xl px-4 text-center">
-      <h2 class="text-3xl text-white">Une question sur nos offres&nbsp;?</h2>
-      <p class="mt-4 text-lg text-brand-100">
-        Réservez une démo de 30 minutes et on vous aide à choisir la bonne formule.
-      </p>
-      <div class="mt-8">
-        <a href={url('/demo')} class="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-base font-semibold text-brand-500 hover:bg-brand-50 transition-colors">
-          Demander une démo
-        </a>
-      </div>
-    </div>
-  </section>
+    function setActive(active: HTMLElement, inactive: HTMLElement) {
+      active.classList.add('bg-brand-500', 'text-white');
+      active.classList.remove('text-gray-600');
+      inactive.classList.remove('bg-brand-500', 'text-white');
+      inactive.classList.add('text-gray-600');
+    }
+
+    btnMensuel?.addEventListener('click', () => setActive(btnMensuel, btnAnnuel!));
+    btnAnnuel?.addEventListener('click', () => setActive(btnAnnuel, btnMensuel!));
+  </script>
 </BaseLayout>

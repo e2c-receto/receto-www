@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { ctaNav } from '../data/navigation';
 import { url } from '../utils/url';
 ---
 
@@ -85,42 +84,6 @@ import { url } from '../utils/url';
     </div>
   </section>
 
-  <!-- Comment ça marche ? -->
-  <section class="py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl text-gray-950">Comment ça marche&nbsp;?</h2>
-          <p class="mt-4 text-xl sm:text-2xl font-medium text-gray-950">
-            Optimisez vos coûts matière en 3 clics&nbsp;!
-          </p>
-          <div class="mt-10 space-y-6">
-            <div class="flex items-center gap-4">
-              <div class="flex-shrink-0 w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center text-xl font-bold text-brand-500">1</div>
-              <p class="text-lg text-gray-900">Entrez vos fournisseurs &amp; produits</p>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="flex-shrink-0 w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center text-xl font-bold text-brand-500">2</div>
-              <p class="text-lg text-gray-900">Ajoutez votre recette</p>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="flex-shrink-0 w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center text-xl font-bold text-brand-500">3</div>
-              <p class="text-lg text-gray-900">Ajustez pour la rentabilité</p>
-            </div>
-          </div>
-        </div>
-        <div class="flex justify-center lg:justify-end">
-          <img
-            src={url('/images/app-screenshot.png')}
-            alt="Capture d'écran de l'application Recèto"
-            class="w-full max-w-sm lg:max-w-md h-auto"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Booster votre entreprise — fond bleu -->
   <section class="bg-brand-500 py-20 lg:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -174,21 +137,4 @@ import { url } from '../utils/url';
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-brand-500 py-16">
-    <div class="mx-auto max-w-4xl px-4 text-center">
-      <h2 class="text-3xl text-white">Prêt à optimiser vos recettes&nbsp;?</h2>
-      <p class="mt-4 text-lg text-brand-100">
-        Testez Recèto gratuitement et découvrez une nouvelle façon de piloter votre cuisine.
-      </p>
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href={ctaNav.primary.href} class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-base font-semibold text-brand-500 hover:bg-brand-50 transition-colors">
-          {ctaNav.primary.label}
-        </a>
-        <a href={ctaNav.secondary.href} class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl border border-white/30 px-6 py-3 text-base font-semibold text-white hover:bg-white/10 transition-colors">
-          {ctaNav.secondary.label}
-        </a>
-      </div>
-    </div>
-  </section>
 </BaseLayout>
