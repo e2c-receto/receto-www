@@ -1,13 +1,14 @@
 ---
 import { mainNav, ctaNav } from '../data/navigation';
+import { url } from '../utils/url';
 ---
 
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-20 items-center justify-between">
       <!-- Logo + claim -->
-      <a href="/" class="flex-shrink-0">
-        <img src="/images/logo-claim.svg" alt="Recèto — Faire de bonnes recettes" class="h-10 lg:h-12 w-auto" />
+      <a href={url('/')} class="flex-shrink-0">
+        <img src={url('/images/logo-claim.svg')} alt="Recèto — Faire de bonnes recettes" class="h-10 lg:h-12 w-auto" />
       </a>
 
       <!-- Desktop nav + CTA -->

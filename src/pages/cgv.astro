@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/url';
 ---
 
 <BaseLayout
@@ -87,7 +88,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <h2>Article 10 — Protection des données personnelles</h2>
       <p>
-        Le traitement des données personnelles est détaillé dans la <a href="/politique-confidentialite">Politique de confidentialité</a>.
+        Le traitement des données personnelles est détaillé dans la <a href={url('/politique-confidentialite')}>Politique de confidentialité</a>.
       </p>
 
       <h2>Article 11 — Droit applicable et litiges</h2>

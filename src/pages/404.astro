@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/url';
 ---
 
 <BaseLayout
@@ -16,13 +17,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </p>
       <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
         <a
-          href="/"
+          href={url('/')}
           class="inline-flex items-center justify-center rounded-xl bg-brand-500 px-6 py-3 text-base font-semibold text-white hover:bg-brand-600 transition-colors"
         >
           Retour à l'accueil
         </a>
         <a
-          href="/demo"
+          href={url('/demo')}
           class="inline-flex items-center justify-center rounded-xl border border-gray-300 px-6 py-3 text-base font-semibold text-gray-700 hover:border-brand-500 hover:text-brand-500 transition-colors"
         >
           Demander une démo

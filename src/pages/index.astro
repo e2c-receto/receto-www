@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { faqItems } from '../data/faq';
 import { ctaNav } from '../data/navigation';
+import { url } from '../utils/url';
 ---
 
 <BaseLayout
@@ -38,7 +39,7 @@ import { ctaNav } from '../data/navigation';
         <!-- Mockup iPhone -->
         <div class="relative flex justify-center lg:justify-end">
           <img
-            src="/images/mockup-iphone.png"
+            src={url('/images/mockup-iphone.png')}
             alt="Application Recèto sur iPhone"
             class="w-64 sm:w-72 lg:w-80 xl:w-96 h-auto drop-shadow-2xl"
             loading="eager"
@@ -52,7 +53,7 @@ import { ctaNav } from '../data/navigation';
   <section class="relative bg-brand-500 py-20 lg:py-28 overflow-hidden">
     <!-- Vague décorative multicolore -->
     <img
-      src="/images/wave-blue.png"
+      src={url('/images/wave-blue.png')}
       alt=""
       class="absolute right-0 top-0 h-full w-auto object-cover pointer-events-none"
       aria-hidden="true"
@@ -62,7 +63,7 @@ import { ctaNav } from '../data/navigation';
         <!-- Rentabilité -->
         <div class="bg-white rounded-2xl p-8 text-center">
           <div class="mx-auto w-20 h-20 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm">
-            <img src="/images/icons/feature-rentabilite.svg" alt="" class="w-10 h-10" />
+            <img src={url('/images/icons/feature-rentabilite.svg')} alt="" class="w-10 h-10" />
           </div>
           <h3 class="text-2xl font-bold text-gray-950 mb-4">Rentabilité Assurée</h3>
           <p class="text-gray-600 leading-relaxed">
@@ -72,7 +73,7 @@ import { ctaNav } from '../data/navigation';
         <!-- Impact CO2 -->
         <div class="bg-white rounded-2xl p-8 text-center">
           <div class="mx-auto w-20 h-20 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm">
-            <img src="/images/icons/feature-co2.svg" alt="" class="w-10 h-10" />
+            <img src={url('/images/icons/feature-co2.svg')} alt="" class="w-10 h-10" />
           </div>
           <h3 class="text-2xl font-bold text-gray-950 mb-4">Impact CO2</h3>
           <p class="text-gray-600 leading-relaxed">
@@ -82,7 +83,7 @@ import { ctaNav } from '../data/navigation';
         <!-- Gestion simplifiée -->
         <div class="bg-white rounded-2xl p-8 text-center">
           <div class="mx-auto w-20 h-20 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm">
-            <img src="/images/icons/feature-gestion.svg" alt="" class="w-10 h-10" />
+            <img src={url('/images/icons/feature-gestion.svg')} alt="" class="w-10 h-10" />
           </div>
           <h3 class="text-2xl font-bold text-gray-950 mb-4">Gestion Simplifiée</h3>
           <p class="text-gray-600 leading-relaxed">
@@ -107,21 +108,21 @@ import { ctaNav } from '../data/navigation';
             <!-- Étape 1 -->
             <div class="flex items-center gap-4">
               <div class="flex-shrink-0 w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center">
-                <img src="/images/icons/step-fournisseurs.svg" alt="" class="w-7 h-7" />
+                <img src={url('/images/icons/step-fournisseurs.svg')} alt="" class="w-7 h-7" />
               </div>
               <p class="text-lg text-gray-900">Entrez vos fournisseurs &amp; produits</p>
             </div>
             <!-- Étape 2 -->
             <div class="flex items-center gap-4">
               <div class="flex-shrink-0 w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center">
-                <img src="/images/icons/step-recette.svg" alt="" class="w-7 h-7" />
+                <img src={url('/images/icons/step-recette.svg')} alt="" class="w-7 h-7" />
               </div>
               <p class="text-lg text-gray-900">Ajoutez votre recette</p>
             </div>
             <!-- Étape 3 -->
             <div class="flex items-center gap-4">
               <div class="flex-shrink-0 w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center">
-                <img src="/images/icons/step-rentabilite.svg" alt="" class="w-7 h-7" />
+                <img src={url('/images/icons/step-rentabilite.svg')} alt="" class="w-7 h-7" />
               </div>
               <p class="text-lg text-gray-900">Ajustez pour la rentabilité</p>
             </div>
@@ -130,7 +131,7 @@ import { ctaNav } from '../data/navigation';
         <!-- Screenshot app (forme libre avec contour propre, pas de box) -->
         <div class="flex justify-center lg:justify-end">
           <img
-            src="/images/app-screenshot.png"
+            src={url('/images/app-screenshot.png')}
             alt="Capture d'écran de l'application Recèto — Bien plus qu'un food cost"
             class="w-full max-w-sm lg:max-w-md h-auto"
             loading="lazy"
@@ -194,7 +195,7 @@ import { ctaNav } from '../data/navigation';
               </li>
             </ul>
             <a
-              href="/tarifs"
+              href={url('/tarifs')}
               class="mt-8 inline-flex items-center justify-center w-full rounded-lg bg-brand-500 py-3 text-base font-semibold text-white hover:bg-brand-600 transition-colors"
             >
               Voir tous les tarifs
@@ -213,9 +214,9 @@ import { ctaNav } from '../data/navigation';
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl sm:text-4xl text-gray-950 text-center mb-12">Ils nous font confiance</h2>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center justify-items-center">
-        <img src="/images/partners/talenz.png" alt="Talenz" class="h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy" />
-        <img src="/images/partners/cci.png" alt="CCI Vaucluse" class="h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy" />
-        <img src="/images/partners/grand-avignon.png" alt="Grand Avignon" class="h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy" />
+        <img src={url('/images/partners/talenz.png')} alt="Talenz" class="h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy" />
+        <img src={url('/images/partners/cci.png')} alt="CCI Vaucluse" class="h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy" />
+        <img src={url('/images/partners/grand-avignon.png')} alt="Grand Avignon" class="h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy" />
       </div>
     </div>
   </section>

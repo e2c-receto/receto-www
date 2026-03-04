@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/url';
 ---
 
 <BaseLayout
@@ -58,7 +59,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <h2>Données personnelles</h2>
       <p>
-        Pour en savoir plus sur la collecte et le traitement de vos données personnelles, veuillez consulter notre <a href="/politique-confidentialite">politique de confidentialité</a>.
+        Pour en savoir plus sur la collecte et le traitement de vos données personnelles, veuillez consulter notre <a href={url('/politique-confidentialite')}>politique de confidentialité</a>.
       </p>
 
       <h2>Cookies</h2>

@@ -1,5 +1,6 @@
 ---
 import { footerNav } from '../data/navigation';
+import { url } from '../utils/url';
 ---
 
 <footer class="bg-gray-50 border-t border-gray-200">
@@ -47,7 +48,7 @@ import { footerNav } from '../data/navigation';
                 {item.label}
               </a>
             ))}
-            <a href="/#faq" class="block text-xs text-gray-900 hover:text-brand-500 transition-colors">FAQ</a>
+            <a href={url('/#faq')} class="block text-xs text-gray-900 hover:text-brand-500 transition-colors">FAQ</a>
           </div>
           <div class="space-y-3">
             {footerNav.company.map((item) => (

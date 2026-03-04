@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { url } from '../utils/url';
 
 interface Props {
   title: string;
@@ -13,7 +14,7 @@ interface Props {
 const {
   title,
   description,
-  ogImage = '/images/og-default.jpg',
+  ogImage = url('/images/og-default.jpg'),
   noindex = false,
 } = Astro.props;
 
@@ -48,11 +49,11 @@ const canonical = Astro.url.href;
   <meta name="twitter:image" content={ogImage} />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
 
   <!-- Preload fonts -->
-  <link rel="preload" href="/fonts/Irregardless-Black.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/Lexend-Variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href={url('/fonts/Irregardless-Black.woff2')} as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href={url('/fonts/Lexend-Variable.woff2')} as="font" type="font/woff2" crossorigin />
 
   <!-- JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify({

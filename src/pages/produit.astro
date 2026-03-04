@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { ctaNav } from '../data/navigation';
+import { url } from '../utils/url';
 ---
 
 <BaseLayout
@@ -43,7 +44,7 @@ import { ctaNav } from '../data/navigation';
   <!-- Fonctionnalités à venir — fond bleu -->
   <section class="relative bg-brand-500 py-20 lg:py-28 overflow-hidden">
     <img
-      src="/images/wave-blue.png"
+      src={url('/images/wave-blue.png')}
       alt=""
       class="absolute right-0 top-0 h-full w-auto object-cover pointer-events-none"
       aria-hidden="true"
@@ -110,7 +111,7 @@ import { ctaNav } from '../data/navigation';
         </div>
         <div class="flex justify-center lg:justify-end">
           <img
-            src="/images/app-screenshot.png"
+            src={url('/images/app-screenshot.png')}
             alt="Capture d'écran de l'application Recèto"
             class="w-full max-w-sm lg:max-w-md h-auto"
             loading="lazy"
@@ -163,7 +164,7 @@ import { ctaNav } from '../data/navigation';
         </div>
         <div class="flex justify-center lg:justify-end">
           <img
-            src="/images/mockup-iphone.png"
+            src={url('/images/mockup-iphone.png')}
             alt="Application Recèto sur mobile"
             class="w-64 sm:w-72 lg:w-80 h-auto drop-shadow-2xl"
             loading="lazy"
