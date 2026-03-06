@@ -30,33 +30,36 @@ import { url } from '../utils/url';
           {
             name: 'Emmanuel Robinet Vergez',
             role: 'Président',
-            initials: 'ERV',
+            photo: '/images/team/emmanuel.png',
           },
           {
             name: 'Baptiste Casnedi',
             role: 'Business',
-            initials: 'BC',
+            photo: '/images/team/baptiste.png',
           },
           {
             name: 'Jérôme Goth',
             role: 'Design',
-            initials: 'JG',
+            photo: '/images/team/jerome.png',
           },
           {
             name: 'Vincent Dupuis',
             role: 'Environnement',
-            initials: 'VD',
+            photo: '/images/team/vincent.png',
           },
           {
             name: 'Odile Robinet Vergez',
             role: 'Cheffe de cuisine',
-            initials: 'ORV',
+            photo: '/images/team/odile.png',
           },
         ].map((member) => (
           <div class="text-center">
-            <div class="w-28 h-28 rounded-full bg-gray-300 mx-auto mb-4 flex items-center justify-center text-white text-xl font-heading font-black overflow-hidden">
-              {member.initials}
-            </div>
+            <img
+              src={url(member.photo)}
+              alt={member.name}
+              class="w-28 h-28 rounded-full mx-auto mb-4 object-cover ring-4 ring-brand-500"
+              loading="lazy"
+            />
             <h3 class="text-base font-semibold text-gray-950">{member.name}</h3>
             <p class="text-sm text-gray-500 mt-1">{member.role}</p>
             <div class="mt-3 flex items-center justify-center gap-3">
