@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { faqItems } from '../data/faq';
+import { plans } from '../data/pricing';
 import { ctaNav } from '../data/navigation';
 import { url } from '../utils/url';
 ---
@@ -9,28 +10,34 @@ import { url } from '../utils/url';
   title="Accueil"
   description="Recèto : l'application qui calcule la marge ET l'empreinte carbone de vos recettes. Pour les chefs qui veulent des recettes rentables et durables."
 >
-  <!-- Hero -->
-  <section class="relative overflow-hidden bg-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+  <!-- Hero — fond bleu -->
+  <section class="relative overflow-hidden bg-brand-500">
+    <img
+      src={url('/images/wave-blue.png')}
+      alt=""
+      class="absolute right-0 top-0 h-full w-auto object-cover pointer-events-none"
+      aria-hidden="true"
+    />
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <!-- Texte -->
-        <div>
-          <h1 class="text-4xl sm:text-5xl xl:text-6xl leading-tight tracking-tight text-gray-950">
+        <div class="text-white">
+          <h1 class="text-4xl sm:text-5xl xl:text-6xl leading-tight tracking-tight">
             Chefs de cuisine, augmentez votre marge et réduisez votre impact CO2&nbsp;!
           </h1>
-          <p class="mt-6 text-xl sm:text-2xl font-medium text-gray-950 max-w-xl">
+          <p class="mt-6 text-xl sm:text-2xl font-medium opacity-90 max-w-xl">
             Recèto&nbsp;: L'outil de pilotage des Chefs qui rend les recettes rentables et éco-responsables.
           </p>
           <div class="mt-8 flex flex-col sm:flex-row gap-3">
             <a
               href={ctaNav.primary.href}
-              class="inline-flex items-center justify-center rounded-xl bg-brand-500 px-6 py-3 text-base font-semibold text-white hover:bg-brand-600 transition-colors shadow-lg shadow-brand-500/25"
+              class="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-base font-semibold text-brand-500 hover:bg-brand-50 transition-colors"
             >
               Essayer gratuitement
             </a>
             <a
               href={ctaNav.secondary.href}
-              class="inline-flex items-center justify-center rounded-xl border border-gray-300 px-6 py-3 text-base font-semibold text-gray-700 hover:border-brand-500 hover:text-brand-500 transition-colors"
+              class="inline-flex items-center justify-center rounded-xl border border-white/50 px-6 py-3 text-base font-semibold text-white hover:bg-white/10 transition-colors"
             >
               Demander une démo
             </a>
@@ -49,20 +56,13 @@ import { url } from '../utils/url';
     </div>
   </section>
 
-  <!-- Features — fond bleu -->
-  <section class="relative bg-brand-500 py-20 lg:py-28 overflow-hidden">
-    <!-- Vague décorative multicolore -->
-    <img
-      src={url('/images/wave-blue.png')}
-      alt=""
-      class="absolute right-0 top-0 h-full w-auto object-cover pointer-events-none"
-      aria-hidden="true"
-    />
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <!-- Features — fond clair -->
+  <section class="py-20 lg:py-28 bg-gray-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
         <!-- Rentabilité -->
-        <div class="bg-white rounded-2xl p-8 text-center">
-          <div class="mx-auto w-20 h-20 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm">
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm">
+          <div class="mx-auto w-20 h-20 rounded-full bg-gray-50 flex items-center justify-center mb-6">
             <img src={url('/images/icons/feature-rentabilite.svg')} alt="" class="w-10 h-10" />
           </div>
           <h3 class="text-2xl font-bold text-gray-950 mb-4">Rentabilité Assurée</h3>
@@ -71,8 +71,8 @@ import { url } from '../utils/url';
           </p>
         </div>
         <!-- Impact CO2 -->
-        <div class="bg-white rounded-2xl p-8 text-center">
-          <div class="mx-auto w-20 h-20 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm">
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm">
+          <div class="mx-auto w-20 h-20 rounded-full bg-gray-50 flex items-center justify-center mb-6">
             <img src={url('/images/icons/feature-co2.svg')} alt="" class="w-10 h-10" />
           </div>
           <h3 class="text-2xl font-bold text-gray-950 mb-4">Impact CO2</h3>
@@ -81,8 +81,8 @@ import { url } from '../utils/url';
           </p>
         </div>
         <!-- Gestion simplifiée -->
-        <div class="bg-white rounded-2xl p-8 text-center">
-          <div class="mx-auto w-20 h-20 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm">
+        <div class="bg-white rounded-2xl p-8 text-center shadow-sm">
+          <div class="mx-auto w-20 h-20 rounded-full bg-gray-50 flex items-center justify-center mb-6">
             <img src={url('/images/icons/feature-gestion.svg')} alt="" class="w-10 h-10" />
           </div>
           <h3 class="text-2xl font-bold text-gray-950 mb-4">Gestion Simplifiée</h3>
@@ -105,21 +105,18 @@ import { url } from '../utils/url';
             Optimisez vos coûts matière en 3 clics&nbsp;!
           </p>
           <div class="mt-10 space-y-6">
-            <!-- Étape 1 -->
             <div class="flex items-center gap-4">
               <div class="flex-shrink-0 w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center">
                 <img src={url('/images/icons/step-fournisseurs.svg')} alt="" class="w-7 h-7" />
               </div>
               <p class="text-lg text-gray-900">Entrez vos fournisseurs &amp; produits</p>
             </div>
-            <!-- Étape 2 -->
             <div class="flex items-center gap-4">
               <div class="flex-shrink-0 w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center">
                 <img src={url('/images/icons/step-recette.svg')} alt="" class="w-7 h-7" />
               </div>
               <p class="text-lg text-gray-900">Ajoutez votre recette</p>
             </div>
-            <!-- Étape 3 -->
             <div class="flex items-center gap-4">
               <div class="flex-shrink-0 w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center">
                 <img src={url('/images/icons/step-rentabilite.svg')} alt="" class="w-7 h-7" />
@@ -128,7 +125,7 @@ import { url } from '../utils/url';
             </div>
           </div>
         </div>
-        <!-- Screenshot app (forme libre avec contour propre, pas de box) -->
+        <!-- Illustration -->
         <div class="flex justify-center lg:justify-end">
           <img
             src={url('/images/app-screenshot.png')}
@@ -144,67 +141,96 @@ import { url } from '../utils/url';
   <!-- Notre service — fond bleu -->
   <section class="bg-brand-500 py-20 lg:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-        <!-- Texte -->
-        <div class="text-white">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl">Notre service</h2>
-          <p class="mt-4 text-xl sm:text-2xl font-medium">
-            Adoptez Recèto avec ou sans engagement
-          </p>
-          <div class="mt-8 space-y-8 text-lg leading-relaxed opacity-90">
+      <div class="text-white">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl">Notre service</h2>
+        <p class="mt-4 text-xl sm:text-2xl font-medium">
+          Adoptez Recèto avec ou sans engagement
+        </p>
+        <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 text-lg leading-relaxed opacity-90">
+          <div class="space-y-6">
             <p>
               Gérez facilement vos ingrédients, fournisseurs et calculs automatiques&nbsp;: tout est centralisé et actualisé en temps réel pour un pilotage sans stress.
             </p>
             <p>
               Rejoignez dès aujourd'hui une communauté engagée et boostez la gestion de vos fiches techniques&nbsp;: l'inscription est gratuite, sans engagement, et la prise en main rapide. Passez à la cuisine éco-responsable et rentable&nbsp;!
             </p>
+          </div>
+          <div class="space-y-6">
             <p>
               Avec Recèto, profitez d'une solution clé en main pour optimiser vos recettes, réduire vos coûts et agir concrètement pour l'environnement.
             </p>
-          </div>
-        </div>
-        <!-- Carte pricing simplifiée -->
-        <div class="bg-white rounded-2xl overflow-hidden shadow-xl">
-          <div class="bg-brand-600 py-5 text-center">
-            <p class="text-xl font-body text-white">OFFRE DÉCOUVERTE GRATUITE</p>
-          </div>
-          <div class="p-8 text-center">
-            <div class="flex items-baseline justify-center">
-              <span class="text-7xl font-heading font-black text-gray-950">39</span>
-              <span class="text-3xl font-bold text-gray-950 ml-1">€</span>
-            </div>
-            <p class="mt-2 text-gray-600">Par mois HT, dès l'offre Essentiel</p>
-            <ul class="mt-6 space-y-3 text-sm text-gray-700">
-              <li class="flex items-center justify-center gap-2">
-                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-                Jusqu'à 25 recettes et 10 fournisseurs
-              </li>
-              <li class="flex items-center justify-center gap-2">
-                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-                Empreinte carbone de chaque recette
-              </li>
-              <li class="flex items-center justify-center gap-2">
-                <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-                Scan de factures et export PDF
-              </li>
-            </ul>
-            <a
-              href={url('/tarifs')}
-              class="mt-8 inline-flex items-center justify-center w-full rounded-lg bg-brand-500 py-3 text-base font-semibold text-white hover:bg-brand-600 transition-colors"
-            >
-              Voir tous les tarifs
-            </a>
-            <p class="mt-4 text-xs text-gray-500 leading-relaxed">
-              Sans engagement, sans revente de données. Hébergement France / UE.
+            <p>
+              Rejoignez les restaurateurs et traiteurs qui souhaitent gagner du temps, améliorer leur rentabilité et réduire leur impact environnemental.
             </p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing cards — fond bleu + rainbow wave -->
+  <section class="relative bg-brand-500 py-20 lg:py-28 overflow-hidden">
+    <img
+      src={url('/images/wave-blue.png')}
+      alt=""
+      class="absolute right-0 top-0 h-full w-auto object-cover pointer-events-none"
+      aria-hidden="true"
+    />
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {plans.map((plan) => (
+          <div class:list={[
+            "relative rounded-2xl p-8 bg-white shadow-sm",
+            plan.featured ? "ring-4 ring-white/50 scale-105" : ""
+          ]}>
+            {plan.featured && (
+              <span class="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-500">
+                Recommandé
+              </span>
+            )}
+            <p class="text-sm font-semibold text-brand-500 uppercase tracking-wide">{plan.name}</p>
+            <div class="mt-4 flex items-baseline">
+              <span class="text-5xl font-heading font-black text-gray-950">
+                {plan.price === null ? 'Gratuit' : `${plan.price}\u20AC`}
+              </span>
+              {plan.period && <span class="ml-2 text-gray-500">{plan.period}</span>}
+            </div>
+            <p class="mt-3 text-sm text-gray-600">{plan.description}</p>
+            <ul class="mt-6 space-y-3">
+              {plan.features.map((feature) => (
+                <li class="flex items-start gap-2 text-sm">
+                  {feature.included === 'yes' ? (
+                    <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  ) : feature.included === 'limited' ? (
+                    <svg class="w-5 h-5 text-amber-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                    </svg>
+                  ) : (
+                    <svg class="w-5 h-5 text-gray-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  )}
+                  <span class:list={[feature.included === 'no' ? "text-gray-400" : "text-gray-700"]}>
+                    {feature.label}{feature.value ? ` (${feature.value})` : ''}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href={plan.cta.href}
+              class:list={[
+                "mt-8 block w-full text-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors",
+                plan.featured
+                  ? "bg-brand-500 text-white hover:bg-brand-600"
+                  : "border border-gray-300 text-gray-700 hover:border-brand-500 hover:text-brand-500"
+              ]}
+            >
+              {plan.cta.label}
+            </a>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -254,23 +280,5 @@ import { url } from '../utils/url';
         }
       }))
     })} />
-  </section>
-
-  <!-- CTA final -->
-  <section class="bg-brand-500 py-16">
-    <div class="mx-auto max-w-4xl px-4 text-center">
-      <h2 class="text-3xl sm:text-4xl text-white">Prêt à créer des recettes rentables&nbsp;?</h2>
-      <p class="mt-4 text-lg text-brand-100">
-        Rejoignez les restaurateurs qui maîtrisent leurs marges et leur impact.
-      </p>
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href={ctaNav.primary.href} class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-base font-semibold text-brand-500 hover:bg-brand-50 transition-colors">
-          {ctaNav.primary.label}
-        </a>
-        <a href={ctaNav.secondary.href} class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl border border-white/30 px-6 py-3 text-base font-semibold text-white hover:bg-white/10 transition-colors">
-          {ctaNav.secondary.label}
-        </a>
-      </div>
-    </div>
   </section>
 </BaseLayout>
