@@ -7,40 +7,37 @@ import { url } from '../utils/url';
   title="Produit"
   description="Découvrez Recèto : fiches techniques, scan de factures, empreinte carbone et gestion de rentabilité pour la restauration."
 >
-  <!-- Hero -->
+  <!-- Section 1 — Hero (white bg) -->
   <section class="py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl text-gray-950">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="max-w-4xl">
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-[6.5rem] leading-[0.95] text-gray-950">
           Une interface simple
         </h1>
-        <p class="mt-6 text-lg text-gray-600 max-w-2xl">
+        <p class="mt-6 text-xl sm:text-2xl lg:text-[1.875rem] font-medium text-gray-950 max-w-3xl">
           Découvrez une interface simple conçue pour les restaurateurs qui souhaitent optimiser leur gestion quotidienne.
         </p>
       </div>
 
       <!-- Fonctionnalités Recèto -->
       <div class="mt-16">
-        <h2 class="text-3xl sm:text-4xl text-gray-950">Fonctionnalités Recèto</h2>
-        <ul class="mt-8 space-y-4 max-w-3xl">
-          <li class="flex items-start gap-3">
-            <svg class="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-            <span class="text-gray-700">Fiches techniques et recettes : créez, stockez et comparez vos recettes avec le coût matière en temps réel et les prix actualisés de vos fournisseurs</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-            <span class="text-gray-700">Identification d'une base de données ingrédients alimentée avec plus de 900 produits typiques de la restauration professionnelle</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-            <span class="text-gray-700">Ajoutez vos fournisseurs en quelques clics et suivez l'évolution de leurs prix</span>
-          </li>
-        </ul>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl text-gray-950">Fonctionnalités Recèto</h2>
+        <div class="mt-8 space-y-5 max-w-3xl text-lg text-gray-950 leading-relaxed">
+          <p>
+            – <strong>Gérez vos recettes</strong> : chaque fiche technique est accompagnée d'un calcul automatique du coût matière et de l'impact carbone, pour une rentabilité assurée et une démarche éco-responsable.
+          </p>
+          <p>
+            – <strong>Bénéficiez d'une base de données</strong> alimentée avec plus de 900 produits pour estimer rapidement vos coûts de revient.
+          </p>
+          <p>
+            – <strong>Ajoutez vos fournisseurs</strong> en quelques clics et suivez l'évolution de vos relations professionnelles.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Fonctionnalités à venir — fond bleu -->
+  <!-- Section 2 — Fonctionnalités à venir (blue bg + wave) -->
   <section class="relative bg-brand-500 py-20 lg:py-28 overflow-hidden">
     <img
       src={url('/images/wave-blue.png')}
@@ -48,35 +45,41 @@ import { url } from '../utils/url';
       class="absolute right-0 top-0 h-full w-auto object-cover pointer-events-none"
       aria-hidden="true"
     />
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="text-center text-white mb-12">
-        <h2 class="text-3xl sm:text-4xl">Fonctionnalités à venir sur Recèto</h2>
-        <p class="mt-4 text-lg opacity-90 max-w-2xl mx-auto">
-          Accédez à des outils avancés pour piloter votre activité, automatiser la gestion et améliorer les performances de votre cuisine.
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="text-center text-white mb-16">
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl">Fonctionnalités à venir sur Recèto</h2>
+        <p class="mt-6 text-xl sm:text-2xl lg:text-[1.875rem] opacity-90 max-w-3xl mx-auto">
+          Accédez à des outils avancés pour piloter votre activité et maximiser la performance de votre cuisine.
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-        <div class="bg-white rounded-2xl p-8 text-center">
-          <div class="mx-auto w-20 h-20 rounded-full bg-brand-50 flex items-center justify-center mb-6">
-            <svg class="w-10 h-10 text-brand-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+
+      <div class="flex flex-col md:flex-row items-stretch justify-center gap-10 lg:gap-[60px]">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-[20px] p-8 text-center w-full md:max-w-[360px]">
+          <div class="mx-auto w-20 h-20 rounded-full bg-[#0070ff] flex items-center justify-center mb-6">
+            <img src={url('/images/icons/feature-gestion.svg')} alt="" class="w-10 h-10 [--fill-0:white] [--stroke-0:white]" aria-hidden="true" />
           </div>
-          <p class="text-gray-600 leading-relaxed">
+          <p class="text-gray-700 leading-relaxed text-lg">
             Recherche avancée et analyse des coûts matières et marges
           </p>
         </div>
-        <div class="bg-white rounded-2xl p-8 text-center">
-          <div class="mx-auto w-20 h-20 rounded-full bg-brand-50 flex items-center justify-center mb-6">
-            <svg class="w-10 h-10 text-brand-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0H6.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5V6.75a3 3 0 00-3-3H6.375a3 3 0 00-3 3v7.5" /></svg>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-[20px] p-8 text-center w-full md:max-w-[360px]">
+          <div class="mx-auto w-20 h-20 rounded-full bg-[#0070ff] flex items-center justify-center mb-6">
+            <img src={url('/images/icons/step-fournisseurs.svg')} alt="" class="w-10 h-10 [--fill-0:white] [--stroke-0:white]" aria-hidden="true" />
           </div>
-          <p class="text-gray-600 leading-relaxed">
+          <p class="text-gray-700 leading-relaxed text-lg">
             Suivi personnalisé des fournisseurs et automatisation des commandes
           </p>
         </div>
-        <div class="bg-white rounded-2xl p-8 text-center">
-          <div class="mx-auto w-20 h-20 rounded-full bg-brand-50 flex items-center justify-center mb-6">
-            <svg class="w-10 h-10 text-brand-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-[20px] p-8 text-center w-full md:max-w-[360px]">
+          <div class="mx-auto w-20 h-20 rounded-full bg-[#0070ff] flex items-center justify-center mb-6">
+            <img src={url('/images/icons/feature-co2.svg')} alt="" class="w-10 h-10 [--fill-0:white] [--stroke-0:white]" aria-hidden="true" />
           </div>
-          <p class="text-gray-600 leading-relaxed">
+          <p class="text-gray-700 leading-relaxed text-lg">
             Tableaux de bord évolutifs pour visualiser l'impact environnemental
           </p>
         </div>
@@ -84,19 +87,15 @@ import { url } from '../utils/url';
     </div>
   </section>
 
-  <!-- Booster votre entreprise — fond bleu -->
-  <section class="relative bg-brand-500 py-20 lg:py-28 overflow-hidden">
-    <img
-      src={url('/images/wave-blue.png')}
-      alt=""
-      class="absolute right-0 top-0 h-full w-auto object-cover pointer-events-none"
-      aria-hidden="true"
-    />
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <!-- Section 3 — Boostez votre entreprise (WHITE bg) -->
+  <section class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div class="text-white">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl">Booster votre entreprise de manière responsable et rentable</h2>
-          <p class="mt-6 text-lg leading-relaxed opacity-90">
+        <div>
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl text-gray-950">
+            Boostez votre entreprise de manière responsable et rentable
+          </h2>
+          <p class="mt-6 text-lg text-gray-600 leading-relaxed max-w-xl">
             Avec ces futures mises à jour, bénéficiez d'une solution globale pour faire progresser votre entreprise dans une démarche responsable et profitable.
           </p>
         </div>
@@ -112,39 +111,51 @@ import { url } from '../utils/url';
     </div>
   </section>
 
-  <!-- Nos engagements UX -->
-  <section class="py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div>
-          <h2 class="text-3xl sm:text-4xl text-gray-950">Nos engagements UX</h2>
-          <p class="mt-4 text-gray-600 leading-relaxed">
-            Chez Recèto, l'expérience utilisateur est au c&oelig;ur de notre démarche. Notre interface intuitive facilite la prise en main et accélère la gestion de vos recettes, ingrédients et données fournisseurs.
-          </p>
-          <ul class="mt-8 space-y-4">
-            <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-              <span class="text-gray-700">Design adaptatif pour tous les écrans, rapidité d'accès aux fonctionnalités clés</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-              <span class="text-gray-700">Accompagnement dédié pour vous aider à améliorer la rentabilité de votre restaurant, tout en maîtrisant l'impact écologique de vos recettes</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 text-brand-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-              <span class="text-gray-700">Données sécurisées, actualisées, et hébergées en Europe pour garantir fiabilité et respect des normes RGPD</span>
-            </li>
-          </ul>
-        </div>
-        <div class="flex justify-center lg:justify-end">
-          <img
-            src={url('/images/mockup-iphone.png')}
-            alt="Application Recèto sur mobile"
-            class="w-64 sm:w-72 lg:w-80 h-auto drop-shadow-2xl"
-            loading="lazy"
-          />
-        </div>
+  <!-- Section 4 — Nos engagements UX (BLUE bg + wave) -->
+  <section class="relative bg-brand-500 py-20 lg:py-28 overflow-hidden">
+    <img
+      src={url('/images/wave-blue.png')}
+      alt=""
+      class="absolute right-0 top-0 h-full w-auto object-cover pointer-events-none"
+      aria-hidden="true"
+    />
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="max-w-3xl">
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl text-white">Nos engagements UX</h2>
+        <p class="mt-6 text-xl text-white/90 leading-relaxed">
+          Chez Recèto, l'expérience utilisateur est au cœur de notre démarche. Notre interface intuitive facilite la prise en main et accélère la gestion de vos recettes, ingrédients et données fournisseurs.
+        </p>
       </div>
+
+      <ul class="mt-12 space-y-6 max-w-3xl">
+        <li class="flex items-start gap-4">
+          <svg class="w-[42px] h-[42px] flex-shrink-0 text-white" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="40" height="40" rx="6" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 21l6 6 12-12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="text-white text-lg leading-relaxed pt-2">
+            Design adaptatif pour tous les écrans, rapidité d'accès aux fonctionnalités clés.
+          </span>
+        </li>
+        <li class="flex items-start gap-4">
+          <svg class="w-[42px] h-[42px] flex-shrink-0 text-white" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="40" height="40" rx="6" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 21l6 6 12-12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="text-white text-lg leading-relaxed pt-2">
+            Accompagnement dédié pour vous aider à améliorer la rentabilité de votre restaurant, tout en maîtrisant l'impact écologique de vos recettes.
+          </span>
+        </li>
+        <li class="flex items-start gap-4">
+          <svg class="w-[42px] h-[42px] flex-shrink-0 text-white" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="40" height="40" rx="6" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 21l6 6 12-12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="text-white text-lg leading-relaxed pt-2">
+            Données sécurisées, actualisées, et hébergées en Europe pour garantir fiabilité et respect des normes RGPD.
+          </span>
+        </li>
+      </ul>
     </div>
   </section>
 

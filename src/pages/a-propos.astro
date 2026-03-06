@@ -1,89 +1,115 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { url } from '../utils/url';
+
+const team = [
+  {
+    name: 'Emmanuel Robinet Vergez',
+    role: 'Président',
+    photo: '/images/team/emmanuel.png',
+    linkedin: '#',
+  },
+  {
+    name: 'Baptiste Casnedi',
+    role: 'Business',
+    photo: '/images/team/baptiste.png',
+    linkedin: '#',
+  },
+  {
+    name: 'Jérôme Cosh',
+    role: 'Design',
+    photo: '/images/team/jerome.png',
+    linkedin: '#',
+  },
+  {
+    name: 'Vincent Dupuis',
+    role: 'Environnement',
+    photo: '/images/team/vincent.png',
+    linkedin: '#',
+  },
+  {
+    name: 'Odile Robinet Vergez',
+    role: 'Cheffe de cuisine',
+    photo: '/images/team/odile.png',
+    linkedin: '#',
+  },
+];
 ---
 
 <BaseLayout
   title="À propos"
   description="Découvrez l'équipe derrière Recèto. Notre mission : rendre la restauration plus rentable et plus durable, grâce à un outil pensé par et pour les chefs."
 >
-  <!-- Hero -->
+  <!-- Section 1 - Hero (white bg) -->
   <section class="py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl text-gray-950">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="max-w-4xl">
+        <h1 class="font-irregardless text-5xl sm:text-6xl lg:text-7xl xl:text-[6.5rem] leading-[0.95] text-gray-950">
           Qui sommes-nous&nbsp;?
         </h1>
-        <p class="mt-4 text-xl sm:text-2xl font-medium text-gray-950">ECO2Chef</p>
-        <p class="mt-6 text-lg text-gray-600 leading-relaxed max-w-2xl">
-          Recèto est une application créée en 2025 par la société ECO2Chef, basée à Avignon. Elle est née de dix ans d'expérience terrain, pour aider les restaurateurs à créer des recettes capables d'optimiser les coûts matières et en maîtrisant l'empreinte carbone de leurs recettes.
+        <p class="mt-6 font-lexend font-medium text-[1.875rem] text-gray-950">
+          ECO2chef
+        </p>
+        <p class="mt-6 font-lexend text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-600 max-w-3xl">
+          Recèto est une application créée en 2025 par la société ECO2chef, basée à Avignon. Elle est née de dix ans d'expérience terrain, pour aider les restaurateurs à rendre leur activité durable en optimisant les coûts matières et en maîtrisant l'empreinte carbone de leurs recettes.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Équipe -->
-  <section class="py-16 lg:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
-        {[
-          {
-            name: 'Emmanuel Robinet Vergez',
-            role: 'Président',
-            photo: '/images/team/emmanuel.png',
-          },
-          {
-            name: 'Baptiste Casnedi',
-            role: 'Business',
-            photo: '/images/team/baptiste.png',
-          },
-          {
-            name: 'Jérôme Goth',
-            role: 'Design',
-            photo: '/images/team/jerome.png',
-          },
-          {
-            name: 'Vincent Dupuis',
-            role: 'Environnement',
-            photo: '/images/team/vincent.png',
-          },
-          {
-            name: 'Odile Robinet Vergez',
-            role: 'Cheffe de cuisine',
-            photo: '/images/team/odile.png',
-          },
-        ].map((member) => (
-          <div class="text-center">
-            <img
-              src={url(member.photo)}
-              alt={member.name}
-              class="w-28 h-28 rounded-full mx-auto mb-4 object-cover ring-4 ring-brand-500"
-              loading="lazy"
-            />
-            <h3 class="text-base font-semibold text-gray-950">{member.name}</h3>
-            <p class="text-sm text-gray-500 mt-1">{member.role}</p>
-            <div class="mt-3 flex items-center justify-center gap-3">
-              <a href="#" class="text-gray-400 hover:text-brand-500 transition-colors" aria-label={`LinkedIn de ${member.name}`}>
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
+  <!-- Section 2 - Team (blue bg) -->
+  <section class="bg-[#155DFC] py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="flex flex-wrap justify-center gap-6">
+        {team.map((member) => (
+          <div class="border-3 border-black rounded-[10px] px-[10px] py-[30px] w-[296px] flex flex-col items-center">
+            <div class="w-36 h-36 sm:w-44 sm:h-44 lg:w-56 lg:h-56 rounded-full bg-white overflow-hidden flex-shrink-0">
+              <img
+                src={url(member.photo)}
+                alt={member.name}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
+            <h3 class="mt-5 font-irregardless text-2xl sm:text-3xl lg:text-4xl text-white text-center leading-tight">
+              {member.name}
+            </h3>
+            <p class="mt-2 font-lexend text-base sm:text-lg text-white text-center">
+              {member.role}
+            </p>
+            <a
+              href={member.linkedin}
+              class="mt-4 text-white hover:text-gray-200 transition-colors"
+              aria-label={`LinkedIn de ${member.name}`}
+            >
+              <svg class="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Mission — fond bleu -->
-  <section class="bg-brand-500 py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl text-white">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl">Des recettes rentables, responsables et faciles à piloter</h2>
-        <p class="mt-6 text-lg leading-relaxed opacity-90">
+  <!-- Section 3 - Mission (gray bg with wave) -->
+  <section class="relative bg-gray-200 py-20 lg:py-28 overflow-hidden">
+    <!-- Wave decoration on the left -->
+    <img
+      src={url('/images/wave-blue.png')}
+      alt=""
+      class="absolute left-0 top-0 h-full w-auto object-cover pointer-events-none select-none"
+      aria-hidden="true"
+    />
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="ml-auto max-w-3xl">
+        <h2 class="font-irregardless text-4xl sm:text-5xl lg:text-6xl leading-[0.95] text-gray-950">
+          Des recettes rentables, responsables et faciles à piloter
+        </h2>
+        <p class="mt-6 font-lexend text-lg sm:text-xl leading-relaxed text-gray-700">
           Recèto accompagne les professionnels dans la création de recettes rentables et responsables en trois étapes&nbsp;: ajout des fournisseurs et produits, création des recettes, et ajustement pour la rentabilité.
         </p>
-        <p class="mt-4 text-lg leading-relaxed opacity-90">
+        <p class="mt-4 font-lexend text-lg sm:text-xl leading-relaxed text-gray-700">
           L'outil sert à prendre des décisions claires et rapides, tant économiques qu'écologiques, pour une gestion moderne de la restauration.
         </p>
       </div>

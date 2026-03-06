@@ -8,154 +8,144 @@ import { url } from '../utils/url';
   title="Tarifs"
   description="Tarifs Recèto : un plan gratuit pour tester, des formules à partir de 39€/mois pour les restaurateurs. Sans engagement."
 >
-  <!-- Hero tarifs -->
+  <!-- Section 1 - Hero -->
   <section class="py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="max-w-3xl">
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl text-gray-950">
+        <h1 class="font-heading text-5xl sm:text-6xl lg:text-7xl xl:text-[6.5rem] leading-[0.95] text-gray-950">
           Nos offres
         </h1>
-        <p class="mt-4 text-xl sm:text-2xl font-medium text-gray-950">
+        <p class="mt-6 text-xl sm:text-2xl lg:text-[1.875rem] lg:leading-9 font-medium text-gray-950">
           Un forfait mensuel ou annuel
         </p>
         <p class="mt-6 text-lg text-gray-600 leading-relaxed">
-          Profitez d'une offre unique et transparente pour les restaurateurs. Recèto vous propose un forfait mensuel ou annuel, sans frais cachés, adapté à la gestion et l'optimisation de vos recettes.
+          Profitez d'<strong class="text-gray-950">une offre unique</strong> et transparente <strong class="text-gray-950">pour les restaurateurs</strong> : Recèto vous propose un forfait mensuel ou annuel, sans frais cachés, adapté à la gestion et l'optimisation de vos recettes.
         </p>
         <p class="mt-4 text-lg text-gray-600 leading-relaxed">
-          Bénéficiez d'un <strong class="text-gray-950">accès complet</strong> à notre outil de pilotage, avec la possibilité de choisir le palier qui convient à votre établissement pour augmenter votre marge et maîtriser votre impact environnemental.
+          Bénéficiez d'un <strong class="text-gray-950">accès complet</strong> à notre outil de pilotage, avec la possibilité de choisir la période qui convient à votre établissement pour augmenter votre marge et maîtriser votre impact environnemental.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Pricing cards + toggle -->
+  <!-- Section 2 - Pricing -->
   <section class="relative bg-brand-500 py-20 lg:py-28 overflow-hidden">
-    <!-- Toggle Mensuel / Annuel -->
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center mb-12">
-      <div class="inline-flex items-center rounded-full bg-white/20 p-1">
-        <button
-          id="btn-mensuel"
-          class="rounded-full px-6 py-2 text-sm font-semibold bg-white text-brand-500 transition-colors"
-          data-period="mensuel"
-        >
-          Mensuel
-        </button>
-        <button
-          id="btn-annuel"
-          class="rounded-full px-6 py-2 text-sm font-semibold text-white hover:text-white/80 transition-colors"
-          data-period="annuel"
-        >
-          Annuel
-        </button>
-      </div>
-      <p class="mt-3 text-sm text-white/70">Économisez 2 mois avec le forfait annuel</p>
-    </div>
     <img
       src={url('/images/wave-blue.png')}
       alt=""
       class="absolute right-0 top-0 h-full w-auto object-cover pointer-events-none"
       aria-hidden="true"
     />
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-12">
+      <!-- Toggle Annuel / Mensuel -->
+      <div class="text-center mb-4">
+        <div class="inline-flex items-center rounded-lg border border-white overflow-hidden p-1">
+          <button
+            id="btn-annuel-tarifs"
+            class="rounded-md px-5 py-2.5 text-base font-normal bg-white text-brand-500 transition-colors"
+            data-period="annuel"
+          >
+            Annuel
+          </button>
+          <button
+            id="btn-mensuel-tarifs"
+            class="rounded-md px-5 py-2.5 text-base font-normal text-white transition-colors"
+            data-period="mensuel"
+          >
+            Mensuel
+          </button>
+        </div>
+      </div>
+      <p class="text-center text-base font-light text-white mb-14">
+        Économisez 2 mois avec le forfait annuel
+      </p>
+      <!-- Cards -->
+      <div class="flex flex-col md:flex-row gap-10 lg:gap-[77px] items-center justify-center">
         {plans.map((plan) => (
           <div class:list={[
-            "relative rounded-2xl p-8 bg-white shadow-sm",
-            plan.featured ? "ring-4 ring-white/50 scale-105" : ""
+            "bg-white rounded-[10px] border-4 w-full max-w-[312px] h-auto min-h-[580px] flex items-center px-5 py-8",
+            plan.featured ? "border-brand-500" : "border-gray-950"
           ]}>
-            {plan.featured && (
-              <span class="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-500">
-                Recommandé
-              </span>
-            )}
-            <p class="text-sm font-semibold text-brand-500 uppercase tracking-wide">{plan.name}</p>
-            <div class="mt-4 flex items-baseline">
-              <span class="text-5xl font-heading font-black text-gray-950">
-                {plan.price === null ? 'Gratuit' : `${plan.price}\u20AC`}
-              </span>
-              {plan.period && <span class="ml-2 text-gray-500">{plan.period}</span>}
+            <div class="flex flex-col gap-20 items-center w-full">
+              <div class="w-full space-y-10">
+                <!-- Header -->
+                <div class:list={["space-y-6", plan.featured ? "text-brand-500" : "text-gray-950"]}>
+                  <p class="text-base font-normal uppercase">{plan.name}</p>
+                  <div class="flex items-center gap-1">
+                    <span class="font-heading text-5xl lg:text-[4rem] lg:leading-[5rem]">
+                      {plan.price === null ? 'Gratuit' : `${plan.price}\u20AC`}
+                    </span>
+                    {plan.period && <span class="text-base font-medium">{plan.period}</span>}
+                  </div>
+                  <p class="text-base font-light text-center">{plan.description}</p>
+                </div>
+                <!-- Features -->
+                <div class="space-y-6">
+                  <hr class:list={[plan.featured ? "border-brand-500" : "border-gray-950"]} />
+                  <div class:list={["space-y-2 text-base font-light", plan.featured ? "text-brand-500" : "text-gray-950"]}>
+                    {plan.features.slice(0, 4).map((feature) => (
+                      <p>{feature.label}{feature.value ? ` (${feature.value})` : ''}</p>
+                    ))}
+                  </div>
+                  <hr class:list={[plan.featured ? "border-brand-500" : "border-gray-950"]} />
+                </div>
+              </div>
+              <!-- CTA -->
+              <a
+                href={plan.cta.href}
+                class:list={[
+                  "inline-flex items-center justify-center rounded-md px-5 py-2.5 text-base font-light transition-colors",
+                  plan.featured
+                    ? "bg-brand-500 border border-brand-500 text-white hover:bg-brand-600"
+                    : plan.price === 69
+                      ? "bg-black border border-gray-950 text-white hover:bg-gray-800"
+                      : "border border-gray-950 text-gray-950 hover:bg-gray-100"
+                ]}
+              >
+                {plan.cta.label}
+              </a>
             </div>
-            <p class="mt-3 text-sm text-gray-600">{plan.description}</p>
-            <ul class="mt-6 space-y-3">
-              {plan.features.map((feature) => (
-                <li class="flex items-start gap-2 text-sm">
-                  {feature.included === 'yes' ? (
-                    <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  ) : feature.included === 'limited' ? (
-                    <svg class="w-5 h-5 text-amber-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-                    </svg>
-                  ) : (
-                    <svg class="w-5 h-5 text-gray-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  )}
-                  <span class:list={[feature.included === 'no' ? "text-gray-400" : "text-gray-700"]}>
-                    {feature.label}{feature.value ? ` (${feature.value})` : ''}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <a
-              href={plan.cta.href}
-              class:list={[
-                "mt-8 block w-full text-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors",
-                plan.featured
-                  ? "bg-brand-500 text-white hover:bg-brand-600"
-                  : "border border-gray-300 text-gray-700 hover:border-brand-500 hover:text-brand-500"
-              ]}
-            >
-              {plan.cta.label}
-            </a>
           </div>
         ))}
       </div>
-      <p class="mt-8 text-center text-sm text-white/70">
-        Tous les prix sont HT. Sans engagement, annulation à tout moment.
+    </div>
+  </section>
+
+  <!-- Section 3 - Création base de données -->
+  <section class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <h2 class="font-heading text-4xl sm:text-5xl lg:text-6xl text-gray-950 text-center">
+        Création base de données
+      </h2>
+      <p class="mt-8 text-lg text-gray-600 leading-relaxed max-w-xl">
+        Avec ces futures mises à jour, bénéficiez d'une solution globale pour faire progresser votre entreprise dans une démarche responsable et profitable.
       </p>
     </div>
   </section>
 
-  <!-- Création base de données -->
-  <section class="py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <div>
-          <h2 class="text-3xl sm:text-4xl text-gray-950">Création base de données</h2>
-          <p class="mt-6 text-gray-600 leading-relaxed">
-            Avec ces futures mises à jour, bénéficiez d'une solution globale pour faire progresser votre entreprise dans une démarche responsable et profitable.
-          </p>
-        </div>
-        <div class="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center text-gray-400">
-          Capture d'écran à venir
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bénéfices de Recèto -->
+  <!-- Section 4 - Bénéfices de Recèto -->
   <section class="bg-brand-500 py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <div class="max-w-3xl text-white">
-        <h2 class="text-3xl sm:text-4xl">Bénéfices de Recèto</h2>
+        <h2 class="font-heading text-4xl sm:text-5xl lg:text-6xl">
+          Bénéfices de Recèto
+        </h2>
         <p class="mt-6 text-lg leading-relaxed opacity-90">
           Notre service est créateur de valeur pour les restaurateurs, traiteurs et chefs. Optimisez vos achats, réduisez vos coûts matières et augmentez votre performance.
         </p>
         <p class="mt-6 text-lg leading-relaxed opacity-90">
-          <strong class="text-white">1&nbsp;% d'optimisation des coûts matières, c'est 2&nbsp;000&nbsp;€ de rentabilité supplémentaire</strong> pour un restaurant avec 200&nbsp;000&nbsp;€ de chiffre d'affaires annuel.
+          <strong class="text-white">1&nbsp;% d'optimisation des coûts matière, c'est 2&nbsp;000&nbsp;€ de rentabilité supplémentaire</strong> pour un restaurant avec 200&nbsp;000&nbsp;€ de chiffre d'affaires annuel.
         </p>
         <p class="mt-6 text-lg leading-relaxed opacity-90">
-          Recèto, c'est un outil puissant pour <strong class="text-white">améliorer votre marge</strong>, piloter vos fiches techniques et <strong class="text-white">engager votre démarche éco-responsable</strong>.
+          <strong class="text-white">Recèto,</strong> c'est un outil puissant pour <strong class="text-white">améliorer votre marge,</strong> piloter vos fiches techniques et engager votre démarche éco-responsable.
         </p>
       </div>
     </div>
   </section>
 
   <script>
-    const btnMensuel = document.getElementById('btn-mensuel');
-    const btnAnnuel = document.getElementById('btn-annuel');
+    const btnAnnuel = document.getElementById('btn-annuel-tarifs');
+    const btnMensuel = document.getElementById('btn-mensuel-tarifs');
 
     function setActive(active: HTMLElement, inactive: HTMLElement) {
       active.classList.add('bg-white', 'text-brand-500');
@@ -164,7 +154,7 @@ import { url } from '../utils/url';
       inactive.classList.add('text-white');
     }
 
-    btnMensuel?.addEventListener('click', () => setActive(btnMensuel, btnAnnuel!));
     btnAnnuel?.addEventListener('click', () => setActive(btnAnnuel, btnMensuel!));
+    btnMensuel?.addEventListener('click', () => setActive(btnMensuel, btnAnnuel!));
   </script>
 </BaseLayout>
