@@ -8,7 +8,7 @@ export const mainNav = [
 ];
 
 export const ctaNav = {
-  primary: { label: 'Essayer gratuitement', href: 'https://app.receto.fr' },
+  primary: { label: 'Essayer gratuitement', href: url('/demo') },
   secondary: { label: 'Demander une démo', href: url('/demo') },
 };
 

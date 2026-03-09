@@ -37,52 +37,22 @@ import { url } from '../utils/url';
     </div>
   </section>
 
-  <!-- Section 2 — Fonctionnalités à venir (blue bg + rainbow curved wave) -->
-  <section class="relative bg-brand-500 py-20 lg:py-28 overflow-hidden">
-    <img
-      src={url('/images/wave-rainbow-curved.png')}
-      alt=""
-      class="absolute right-0 top-0 h-full w-auto object-cover pointer-events-none"
-      aria-hidden="true"
-    />
-    <div class="relative mx-auto max-w-7xl px-6 lg:px-12">
-      <div class="text-center text-white mb-16">
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl">Fonctionnalités à venir sur Recèto</h2>
-        <p class="mt-6 font-lexend font-medium text-xl sm:text-2xl lg:text-[1.875rem] lg:leading-9 max-w-3xl mx-auto">
-          Accédez à des outils avancés pour piloter votre activité et maximiser la performance de votre cuisine.
-        </p>
-      </div>
-
-      <div class="flex flex-col md:flex-row items-stretch justify-center gap-10 lg:gap-[60px]">
-        <!-- Card 1 -->
-        <div class="bg-white rounded-[20px] px-8 py-10 text-center w-full md:max-w-[360px] flex flex-col items-center">
-          <div class="w-20 h-20 rounded-full bg-[#0070ff] flex items-center justify-center mb-10">
-            <img src={url('/images/icons/feature-analyse.svg')} alt="" class="w-10 h-10" aria-hidden="true" />
-          </div>
-          <p class="font-lexend text-gray-800 text-lg sm:text-xl lg:text-2xl leading-[30px]">
-            Recherche avancée et analyse des coûts matières et marges
+  <!-- Section 2 — Roadmap (compact) -->
+  <section class="bg-gray-950 py-14 lg:py-16">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <p class="text-sm font-medium text-brand-400 uppercase tracking-wider mb-2">Roadmap 2026</p>
+          <p class="text-xl sm:text-2xl text-white font-medium">
+            Bientôt disponible : scan de factures, analyse avancée des marges, tableaux de bord environnementaux.
           </p>
         </div>
-
-        <!-- Card 2 -->
-        <div class="bg-white rounded-[20px] px-8 py-10 text-center w-full md:max-w-[360px] flex flex-col items-center">
-          <div class="w-20 h-20 rounded-full bg-[#0070ff] flex items-center justify-center mb-10">
-            <img src={url('/images/icons/feature-fournisseurs.svg')} alt="" class="w-10 h-10" aria-hidden="true" />
-          </div>
-          <p class="font-lexend text-gray-800 text-lg sm:text-xl lg:text-2xl leading-[30px]">
-            Suivi personnalisé des fournisseurs et automatisation des commandes
-          </p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="bg-white rounded-[20px] px-8 py-10 text-center w-full md:max-w-[360px] flex flex-col items-center">
-          <div class="w-20 h-20 rounded-full bg-[#0070ff] flex items-center justify-center mb-10">
-            <img src={url('/images/icons/feature-dashboard.svg')} alt="" class="w-10 h-10" aria-hidden="true" />
-          </div>
-          <p class="font-lexend text-gray-800 text-lg sm:text-xl lg:text-2xl leading-[30px]">
-            Tableaux de bord évolutifs pour visualiser l'impact environnemental
-          </p>
-        </div>
+        <a
+          href="/demo"
+          class="inline-flex items-center justify-center rounded-[10px] border-2 border-white px-6 py-3 text-base font-semibold text-white hover:bg-white hover:text-gray-950 transition-colors whitespace-nowrap"
+        >
+          En savoir plus
+        </a>
       </div>
     </div>
   </section>
@@ -108,6 +78,19 @@ import { url } from '../utils/url';
           />
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- CTA intermédiaire -->
+  <section class="py-16 lg:py-20 bg-gray-50">
+    <div class="mx-auto max-w-3xl px-6 lg:px-12 text-center">
+      <p class="text-2xl sm:text-3xl lg:text-4xl text-gray-950 mb-8">Envie de voir Recèto en action&nbsp;?</p>
+      <a
+        href="/demo"
+        class="inline-flex items-center justify-center rounded-[10px] bg-brand-500 px-8 py-4 text-lg font-semibold text-white hover:bg-brand-600 transition-colors"
+      >
+        Demander une démo
+      </a>
     </div>
   </section>
 
