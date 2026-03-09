@@ -32,7 +32,7 @@ export const plans: PricingPlan[] = [
     ],
   },
   {
-    name: 'Essentiel',
+    name: 'Pro',
     price: 39,
     period: '/mois',
     description: 'Pour les restaurateurs qui passent à l\'action',
@@ -49,12 +49,12 @@ export const plans: PricingPlan[] = [
     ],
   },
   {
-    name: 'Pro',
+    name: 'Illimité',
     price: 69,
     period: '/mois',
     description: 'Gestion complète, sans limites',
     featured: false,
-    cta: { label: 'Passer Pro', href: 'https://app.receto.fr' },
+    cta: { label: 'Passer Illimité', href: 'https://app.receto.fr' },
     features: [
       { label: 'Recettes', value: 'illimitées', included: 'yes' },
       { label: 'Fournisseurs', value: 'illimités', included: 'yes' },

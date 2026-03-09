@@ -1,7 +1,7 @@
 import { url } from '../utils/url';
 
 export const mainNav = [
-  { label: 'Produit', href: url('/produit') },
+  { label: 'Application', href: url('/produit') },
   { label: 'Tarifs', href: url('/tarifs') },
   { label: 'À propos', href: url('/a-propos') },
   { label: 'Blog', href: url('/blog') },
@@ -14,7 +14,7 @@ export const ctaNav = {
 
 export const footerNav = {
   product: [
-    { label: 'Produit', href: url('/produit') },
+    { label: 'Application', href: url('/produit') },
     { label: 'Tarifs', href: url('/tarifs') },
     { label: 'Demander une démo', href: url('/demo') },
   ],
