@@ -2,6 +2,7 @@
 title: "Empreinte carbone en restauration : par où commencer ?"
 date: 2026-03-04
 description: "L'impact environnemental de votre carte n'est pas qu'un sujet de communication. Voici comment le mesurer concrètement avec Agribalyse."
+image: "/images/blog/empreinte-carbone.jpg"
 tags: ["empreinte carbone", "environnement", "Agribalyse"]
 draft: false
 ---

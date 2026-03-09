@@ -2,6 +2,7 @@
 title: "Bienvenue sur le blog Recèto"
 date: 2026-02-25
 description: "Recèto lance son blog. Retrouvez nos conseils pour créer des recettes rentables et durables."
+image: "/images/logo-receto.svg"
 tags: ["actualités"]
 draft: false
 ---

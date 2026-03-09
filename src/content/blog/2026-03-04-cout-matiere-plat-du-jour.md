@@ -2,6 +2,7 @@
 title: "Combien coûte vraiment votre plat du jour ?"
 date: 2026-03-04
 description: "La plupart des restaurateurs sous-estiment le coût réel de leurs plats. Voici comment calculer votre coût matière et fixer un prix rentable."
+image: "/images/blog/plats-restauration.png"
 tags: ["gestion", "rentabilité", "coût matière"]
 draft: false
 ---

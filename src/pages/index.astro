@@ -163,7 +163,7 @@ import { url } from '../utils/url';
   <!-- Pricing — fond bleu -->
   <section class="relative bg-brand-500 py-20 lg:py-28 overflow-hidden">
     <img
-      src={url('/images/wave-blue.png')}
+      src={url('/images/wave-rainbow-arc.png')}
       alt=""
       class="absolute left-0 bottom-0 w-full h-auto object-cover pointer-events-none"
       aria-hidden="true"
@@ -174,7 +174,7 @@ import { url } from '../utils/url';
         Lorem ipsum dolor sit amet consectetur.
       </p>
       <!-- Toggle Annuel / Mensuel -->
-      <div class="text-center mb-4">
+      <div class="flex flex-col items-center gap-4 mb-14">
         <div class="inline-flex items-center rounded-lg border border-white overflow-hidden p-1">
           <button
             id="btn-annuel-home"
@@ -191,51 +191,92 @@ import { url } from '../utils/url';
             Mensuel
           </button>
         </div>
+        <p class="text-base font-light text-white text-center">
+          Économisez 2 mois avec le forfait annuel
+        </p>
       </div>
-      <p class="text-center text-base font-light text-white mb-14">
-        Lorem ipsum dolor sit amet consectetur.
-      </p>
       <!-- Cards -->
-      <div class="flex flex-col md:flex-row gap-10 lg:gap-[77px] items-center justify-center">
+      <div class="flex flex-col md:flex-row gap-10 lg:gap-[77px] items-stretch justify-center">
         {plans.map((plan) => (
-          <div class:list={[
-            "bg-white rounded-[10px] border-4 w-full max-w-[312px] h-auto min-h-[580px] flex items-center px-5 py-8",
-            plan.featured ? "border-brand-500" : "border-gray-950"
-          ]}>
-            <div class="flex flex-col gap-20 items-center w-full">
-              <div class="w-full space-y-10">
+          <div class="bg-brand-500 border-2 border-white rounded-[10px] p-5 w-full max-w-[272px] mx-auto md:mx-0 flex items-center">
+            <div class="flex flex-col gap-9 w-full h-full">
+              <!-- Top content -->
+              <div class="flex flex-col gap-10 flex-1">
                 <!-- Header -->
-                <div class:list={["space-y-6", plan.featured ? "text-brand-500" : "text-gray-950"]}>
-                  <p class="text-base font-normal uppercase">{plan.name}</p>
-                  <div class="flex items-center gap-1">
-                    <span class="font-heading text-5xl lg:text-[4rem] lg:leading-[5rem]">
-                      {plan.price === null ? 'Gratuit' : `${plan.price}\u20AC`}
-                    </span>
-                    {plan.period && <span class="text-base font-medium">{plan.period}</span>}
+                <div class="space-y-10">
+                  <div class="space-y-3 text-gray-50">
+                    <p class="font-heading text-4xl lg:text-[3rem] leading-[60px] tracking-[0.48px]">
+                      {plan.name}
+                    </p>
+                    <p class="font-lexend font-light text-sm leading-[18px]">
+                      {plan.description}
+                    </p>
                   </div>
-                  <p class="text-base font-light text-center">{plan.description}</p>
+
+                  <!-- Price -->
+                  <div class="space-y-2.5 text-gray-50">
+                    {plan.price === null ? (
+                      <>
+                        <p class="font-lexend font-medium text-[2rem] leading-8">Gratuit</p>
+                        {plan.subtitle && (
+                          <p class="font-lexend font-light text-xs leading-4 text-gray-50">{plan.subtitle}</p>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        {/* Annual pricing (visible by default) */}
+                        <div class="price-annuel-home">
+                          <div class="flex items-start gap-2.5">
+                            <span class="relative font-lexend font-medium text-base text-brand-200 leading-8">
+                              {plan.originalPrice}€/mois
+                              <span class="absolute left-0 top-1/2 w-full h-px bg-brand-200 -rotate-[23deg]"></span>
+                            </span>
+                            <span class="font-lexend font-medium text-[2rem] leading-8 text-gray-50">
+                              {plan.price}€{plan.period}
+                            </span>
+                          </div>
+                          {plan.annualInfo && (
+                            <div class="mt-2.5 font-lexend font-light text-xs leading-4 text-gray-50">
+                              <p class="font-bold">{plan.annualInfo}</p>
+                              <p>({plan.annualSaving})</p>
+                            </div>
+                          )}
+                        </div>
+                        {/* Monthly pricing (hidden by default) */}
+                        <div class="price-mensuel-home hidden">
+                          <span class="font-lexend font-medium text-[2rem] leading-8 text-gray-50">
+                            {plan.originalPrice}€/mois
+                          </span>
+                        </div>
+                      </>
+                    )}
+                  </div>
                 </div>
+
                 <!-- Features -->
-                <div class="space-y-6">
-                  <hr class:list={[plan.featured ? "border-brand-500" : "border-gray-950"]} />
-                  <div class:list={["space-y-2 text-base font-light", plan.featured ? "text-brand-500" : "text-gray-950"]}>
-                    {plan.features.slice(0, 4).map((feature) => (
-                      <p>{feature.label}{feature.value ? ` (${feature.value})` : ''}</p>
+                <div class="space-y-2">
+                  <hr class="border-gray-50/30" />
+                  <div class="space-y-2">
+                    {plan.currentFeatures.slice(0, 4).map((feature) => (
+                      <div class="flex items-center gap-1">
+                        <svg class="w-3.5 h-3.5 flex-shrink-0 text-white" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M11.6667 3.5L5.25 9.91667L2.33333 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="font-lexend font-light text-sm leading-[14px] text-gray-50">{feature}</span>
+                      </div>
                     ))}
                   </div>
-                  <hr class:list={[plan.featured ? "border-brand-500" : "border-gray-950"]} />
                 </div>
               </div>
+
               <!-- CTA -->
               <a
                 href={plan.cta.href}
                 class:list={[
-                  "inline-flex items-center justify-center rounded-md px-5 py-2.5 text-base font-light transition-colors",
-                  plan.featured
-                    ? "bg-brand-500 border border-brand-500 text-white hover:bg-brand-600"
-                    : plan.price === 69
-                      ? "bg-black border border-gray-950 text-white hover:bg-gray-800"
-                      : "border border-gray-950 text-gray-950 hover:bg-gray-100"
+                  "inline-flex items-center justify-center rounded-[5px] px-7 py-2.5 text-base font-normal font-lexend transition-colors w-full",
+                  plan.price === null
+                    ? "bg-gray-50 border border-brand-500 text-brand-600"
+                    : "border-2 border-gray-50 text-gray-50 hover:bg-white/10"
                 ]}
               >
                 {plan.cta.label}
@@ -297,15 +338,22 @@ import { url } from '../utils/url';
   <script>
     const btnAnnuel = document.getElementById('btn-annuel-home');
     const btnMensuel = document.getElementById('btn-mensuel-home');
+    const priceAnnuel = document.querySelectorAll('.price-annuel-home');
+    const priceMensuel = document.querySelectorAll('.price-mensuel-home');
 
-    function setActive(active: HTMLElement, inactive: HTMLElement) {
+    function setPeriod(period: 'annuel' | 'mensuel') {
+      const isAnnuel = period === 'annuel';
+      const active = isAnnuel ? btnAnnuel! : btnMensuel!;
+      const inactive = isAnnuel ? btnMensuel! : btnAnnuel!;
       active.classList.add('bg-white', 'text-brand-500');
       active.classList.remove('text-white');
       inactive.classList.remove('bg-white', 'text-brand-500');
       inactive.classList.add('text-white');
+      priceAnnuel.forEach(el => el.classList.toggle('hidden', !isAnnuel));
+      priceMensuel.forEach(el => el.classList.toggle('hidden', isAnnuel));
     }
 
-    btnAnnuel?.addEventListener('click', () => setActive(btnAnnuel, btnMensuel!));
-    btnMensuel?.addEventListener('click', () => setActive(btnMensuel, btnAnnuel!));
+    btnAnnuel?.addEventListener('click', () => setPeriod('annuel'));
+    btnMensuel?.addEventListener('click', () => setPeriod('mensuel'));
   </script>
 </BaseLayout>

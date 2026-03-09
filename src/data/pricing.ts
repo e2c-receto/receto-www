@@ -1,68 +1,85 @@
-export interface PricingFeature {
-  label: string;
-  value?: string;
-  included: 'yes' | 'limited' | 'no';
-}
-
 export interface PricingPlan {
   name: string;
   price: number | null;
+  originalPrice?: number;
   period?: string;
   description: string;
+  subtitle?: string;
+  annualInfo?: string;
+  annualSaving?: string;
   featured: boolean;
   cta: { label: string; href: string };
-  features: PricingFeature[];
+  currentFeatures: string[];
+  futureLabel?: string;
+  futureFeatures: string[];
 }
 
 export const plans: PricingPlan[] = [
   {
     name: 'Découverte',
     price: null,
-    description: 'Testez Recèto sans engagement',
+    description: 'Tester gratuitement Recèto sans engagement pendant 14 jours',
+    subtitle: 'Sans engagement et sans carte bancaire',
     featured: false,
-    cta: { label: 'Essayer', href: 'https://app.receto.fr' },
-    features: [
-      { label: 'Recettes', value: '3', included: 'limited' },
-      { label: 'Fournisseurs', value: '2', included: 'limited' },
-      { label: 'Scan de factures', included: 'no' },
-      { label: 'Empreinte carbone', value: 'aperçu', included: 'limited' },
-      { label: 'Export PDF', value: 'filigrane', included: 'limited' },
-      { label: 'Historique & comparaison', included: 'no' },
-      { label: 'Support email', included: 'yes' },
+    cta: { label: 'Commencer', href: 'https://app.receto.fr' },
+    currentFeatures: [
+      '3 Recettes',
+      '2 Fournisseurs',
+      'Empreinte carbone',
+    ],
+    futureLabel: 'Disponible mi-2026',
+    futureFeatures: [
+      'Scans de factures illimités',
+      'Support',
+      '20 Scans de factures',
+      'Export PDF',
+      'Historique et comparaison',
     ],
   },
   {
     name: 'Pro',
     price: 39,
+    originalPrice: 47,
     period: '/mois',
-    description: 'Pour les restaurateurs qui passent à l\'action',
+    description: 'Pour aller plus loin et augmenter encore plus vos marges',
+    annualInfo: 'Engagement 12 mois — 468 €/An',
+    annualSaving: 'Économisez 96,00 euros',
     featured: true,
     cta: { label: 'Commencer', href: 'https://app.receto.fr' },
-    features: [
-      { label: 'Recettes', value: '25', included: 'yes' },
-      { label: 'Fournisseurs', value: '10', included: 'yes' },
-      { label: 'Scan de factures', value: '3/mois', included: 'limited' },
-      { label: 'Empreinte carbone', value: 'complète', included: 'yes' },
-      { label: 'Export PDF', included: 'yes' },
-      { label: 'Historique & comparaison', included: 'no' },
-      { label: 'Support email', included: 'yes' },
+    currentFeatures: [
+      '25 Recettes',
+      '10 Fournisseurs',
+      'Empreinte carbone',
+      'Support',
+    ],
+    futureLabel: 'Disponible mi-2026',
+    futureFeatures: [
+      'Scans de factures illimités',
+      'Export PDF',
+      'Historique et comparaison',
     ],
   },
   {
     name: 'Illimité',
     price: 69,
+    originalPrice: 83,
     period: '/mois',
-    description: 'Gestion complète, sans limites',
+    description: 'Pour aller plus loin et augmenter encore plus vos marges',
+    annualInfo: 'Engagement 12 mois — 828 €/An',
+    annualSaving: 'Économisez 168,00 euros',
     featured: false,
-    cta: { label: 'Passer Illimité', href: 'https://app.receto.fr' },
-    features: [
-      { label: 'Recettes', value: 'illimitées', included: 'yes' },
-      { label: 'Fournisseurs', value: 'illimités', included: 'yes' },
-      { label: 'Scan de factures', value: 'illimités', included: 'yes' },
-      { label: 'Empreinte carbone', value: 'complète', included: 'yes' },
-      { label: 'Export PDF', included: 'yes' },
-      { label: 'Historique & comparaison', included: 'yes' },
-      { label: 'Support prioritaire', included: 'yes' },
+    cta: { label: 'Commencer', href: 'https://app.receto.fr' },
+    currentFeatures: [
+      'Recettes illimitées',
+      'Fournisseurs illimités',
+      'Empreinte carbone',
+      'Support',
+    ],
+    futureLabel: 'Disponible mi-2026',
+    futureFeatures: [
+      'Scans de factures illimités',
+      'Export PDF',
+      'Historique et comparaison',
     ],
   },
 ];

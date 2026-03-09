@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/c808f424-43ab-4062-a4d1-7ccba64bc499\" -o public/images/team/odile.png)"
+    ]
+  }
+}

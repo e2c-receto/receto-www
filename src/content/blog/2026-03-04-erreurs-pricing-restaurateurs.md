@@ -2,6 +2,7 @@
 title: "5 erreurs de pricing que font 90 % des restaurateurs"
 date: 2026-03-04
 description: "Fixer ses prix au feeling coûte cher. Voici les 5 erreurs les plus courantes en restauration et comment les corriger."
+image: "/images/blog/erreurs-pricing.jpg"
 tags: ["gestion", "rentabilité", "pricing"]
 draft: false
 ---
