@@ -1,0 +1,67 @@
+<!-- Bandeau consentement cookies RGPD -->
+<div id="cookie-banner" class="fixed bottom-0 inset-x-0 z-50 hidden">
+  <div class="mx-auto max-w-4xl px-4 pb-4">
+    <div class="rounded-xl bg-gray-950 p-4 sm:p-5 shadow-2xl border border-gray-800 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      <p class="text-sm text-gray-300 flex-1">
+        Ce site utilise des cookies d'analyse (Google Analytics) pour mesurer l'audience.
+        <a href="/politique-confidentialite" class="text-brand-400 hover:underline">En savoir plus</a>.
+      </p>
+      <div class="flex gap-2 shrink-0">
+        <button id="cookie-refuse" class="rounded-lg px-4 py-2 text-sm font-medium text-gray-300 border border-gray-700 hover:bg-gray-800 transition-colors">
+          Refuser
+        </button>
+        <button id="cookie-accept" class="rounded-lg px-4 py-2 text-sm font-medium text-white bg-brand-500 hover:bg-brand-600 transition-colors">
+          Accepter
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const COOKIE_KEY = 'receto_consent';
+
+  function getConsent() {
+    return localStorage.getItem(COOKIE_KEY);
+  }
+
+  function loadGA() {
+    if (document.getElementById('ga-script')) return;
+    const id = document.querySelector('meta[name="ga-id"]')?.getAttribute('content');
+    if (!id) return;
+    const s = document.createElement('script');
+    s.id = 'ga-script';
+    s.async = true;
+    s.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', id);
+  }
+
+  function init() {
+    const consent = getConsent();
+    const banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+
+    if (consent === 'accepted') {
+      loadGA();
+    } else if (consent === null) {
+      banner.classList.remove('hidden');
+    }
+
+    document.getElementById('cookie-accept')?.addEventListener('click', () => {
+      localStorage.setItem(COOKIE_KEY, 'accepted');
+      banner.classList.add('hidden');
+      loadGA();
+    });
+
+    document.getElementById('cookie-refuse')?.addEventListener('click', () => {
+      localStorage.setItem(COOKIE_KEY, 'refused');
+      banner.classList.add('hidden');
+    });
+  }
+
+  init();
+</script>
