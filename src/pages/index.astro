@@ -132,13 +132,15 @@ import { url } from '../utils/url';
               class="w-full h-auto rounded-[20px] shadow-lg"
               loading="lazy"
             />
-            <!-- Card app superposée -->
-            <img
-              src={url('/images/app-screenshot.png')}
-              alt="Capture d'écran de l'application Recèto — Bien plus qu'un food cost"
-              class="absolute -top-4 -right-16 sm:-right-20 lg:-right-24 w-[200px] sm:w-[220px] lg:w-[258px] h-auto"
-              loading="lazy"
-            />
+            <!-- Card app superposée (croppée sur les 4 blocs métriques) -->
+            <div class="absolute -top-4 -right-16 sm:-right-20 lg:-right-24 w-[200px] sm:w-[220px] lg:w-[258px] h-[240px] sm:h-[265px] lg:h-[310px] rounded-[16px] overflow-hidden">
+              <img
+                src={url('/images/app-screenshot.png')}
+                alt="Capture d'écran de l'application Recèto — Bien plus qu'un food cost"
+                class="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </div>
