@@ -175,12 +175,45 @@ import { url } from '../utils/url';
   <!-- Section 3 - Création base de données -->
   <section class="py-20 lg:py-28">
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      <h2 class="text-4xl sm:text-5xl lg:text-6xl text-gray-950 text-center">
-        Création base de données
-      </h2>
-      <p class="mt-8 font-lexend font-medium text-lg sm:text-xl lg:text-[1.875rem] lg:leading-9 text-gray-600 leading-relaxed max-w-2xl">
-        Avec ces futures mises à jour, bénéficiez d'une solution globale pour faire progresser votre entreprise dans une démarche responsable et profitable.
-      </p>
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <!-- Texte -->
+        <div class="lg:w-1/2">
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-[4rem] xl:leading-[4.5rem] text-gray-950">
+            Création base de données
+          </h2>
+          <p class="mt-6 font-lexend font-medium text-xl sm:text-2xl lg:text-[30px] lg:leading-[36px] text-gray-950">
+            On vous aide ! Concentrez-vous sur l'essentiel, nous nous occupons du reste
+          </p>
+          <div class="mt-6 flex items-center gap-6">
+            <span class="font-lexend text-base text-gray-950">À partir de</span>
+            <span class="font-lexend font-semibold text-5xl lg:text-[64px] lg:leading-[50px] text-gray-950">290<span class="text-2xl lg:text-[32px]">€</span></span>
+          </div>
+          <div class="mt-8 font-lexend text-lg sm:text-xl lg:text-2xl lg:leading-[30px] text-gray-950 space-y-4">
+            <p>
+              Simplifiez la création et la gestion de votre base de données, vos fournisseurs, vos produits et vos prix : avec Recèto, toutes vos informations sont centralisées au même endroit, toujours accessibles et à jour.
+            </p>
+            <p>
+              Notre équipe vous accompagne pour une prise en main rapide et efficace, afin que vous puissiez consacrer plus de temps à l'innovation culinaire et à la satisfaction de vos clients.
+            </p>
+          </div>
+          <div class="mt-10 flex justify-center lg:justify-start">
+            <a
+              href="/demo"
+              class="inline-flex items-center justify-center rounded-[5px] bg-brand-500 border border-gray-50 px-8 py-3 font-lexend text-base text-white hover:bg-brand-600 transition-colors"
+            >
+              Demander un devis
+            </a>
+          </div>
+        </div>
+        <!-- Mockup -->
+        <div class="lg:w-1/2">
+          <img
+            src={url('/images/mockup-desktop-produits.png')}
+            alt="Interface Recèto — gestion des produits"
+            class="w-full h-auto"
+          />
+        </div>
+      </div>
     </div>
   </section>
 

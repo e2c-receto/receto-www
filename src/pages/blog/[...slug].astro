@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { url } from '../../utils/url';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -19,22 +20,129 @@ const { Content } = await post.render();
   description={post.data.description}
   ogImage={post.data.image}
 >
-  <!-- Hero article -->
-  <section class="py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-6 lg:px-12">
-      <time class="text-base text-gray-500">{post.data.date.toLocaleDateString('fr-FR')}</time>
-      <h1 class="mt-4 font-heading text-4xl sm:text-5xl lg:text-6xl leading-[0.95] text-gray-950">
+  <article class="py-12 lg:py-20">
+    <div class="mx-auto max-w-5xl px-6 lg:px-12">
+      {/* Image hero */}
+      {post.data.image && (
+        <div class="w-full h-[250px] sm:h-[350px] lg:h-[407px] rounded-[10px] overflow-hidden mb-8">
+          <img
+            src={url(post.data.image)}
+            alt={post.data.title}
+            class="w-full h-full object-cover"
+          />
+        </div>
+      )}
+
+      {/* Titre */}
+      <h1 class="font-heading text-4xl sm:text-6xl lg:text-7xl xl:text-[128px] xl:leading-[120px] text-gray-950 max-w-4xl">
         {post.data.title}
       </h1>
-      <p class="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl">{post.data.description}</p>
-    </div>
-  </section>
 
-  <article class="pb-20 lg:pb-28">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-      <div class="prose prose-gray max-w-none">
+      {/* Chapeau */}
+      <p class="mt-8 font-lexend font-medium text-xl sm:text-2xl lg:text-[30px] lg:leading-[36px] text-gray-950">
+        {post.data.description}
+      </p>
+
+      {/* Contenu */}
+      <div class="mt-10 blog-content">
         <Content />
       </div>
     </div>
   </article>
 </BaseLayout>
+
+<style is:global>
+  .blog-content {
+    font-family: var(--font-lexend), sans-serif;
+    font-weight: 300;
+    font-size: 1.125rem;
+    line-height: 1.875rem;
+    color: #030712;
+  }
+  @media (min-width: 1024px) {
+    .blog-content {
+      font-size: 1.5rem;
+      line-height: 1.875rem;
+    }
+  }
+  .blog-content p {
+    margin-bottom: 1.25rem;
+  }
+  .blog-content h2 {
+    font-family: var(--font-heading), sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: #030712;
+  }
+  @media (min-width: 1024px) {
+    .blog-content h2 {
+      font-size: 4rem;
+      line-height: 5rem;
+    }
+  }
+  .blog-content h3 {
+    font-family: var(--font-heading), sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #030712;
+  }
+  @media (min-width: 1024px) {
+    .blog-content h3 {
+      font-size: 2.5rem;
+      line-height: 3.125rem;
+    }
+  }
+  .blog-content ul,
+  .blog-content ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+  .blog-content ul {
+    list-style-type: disc;
+  }
+  .blog-content ol {
+    list-style-type: decimal;
+  }
+  .blog-content li {
+    margin-bottom: 0.5rem;
+  }
+  .blog-content strong {
+    font-weight: 600;
+  }
+  .blog-content a {
+    color: #155dfc;
+    text-decoration: underline;
+  }
+  .blog-content a:hover {
+    color: #1552db;
+  }
+  .blog-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+  .blog-content th,
+  .blog-content td {
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+  .blog-content th {
+    background-color: #f3f4f6;
+    font-weight: 600;
+  }
+  .blog-content blockquote {
+    border-left: 4px solid #155dfc;
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #4b5563;
+  }
+</style>
