@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { plans } from '../data/pricing';
+import plans from '../data/pricing.json';
 import { url } from '../utils/url';
 ---
 
@@ -155,7 +155,7 @@ import { url } from '../utils/url';
 
               <!-- CTA -->
               <a
-                href={plan.cta.href}
+                href={plan.cta_href}
                 class:list={[
                   "inline-flex items-center justify-center rounded-[5px] px-7 py-2.5 text-base font-normal font-lexend transition-colors w-full",
                   plan.price === null
@@ -163,7 +163,7 @@ import { url } from '../utils/url';
                     : "border-2 border-gray-50 text-gray-50 hover:bg-white/10"
                 ]}
               >
-                {plan.cta.label}
+                {plan.cta_label}
               </a>
             </div>
           </div>

@@ -1,6 +1,8 @@
 ---
-import { mainNav, ctaNav } from '../data/navigation';
+import nav from '../data/navigation.json';
 import { url } from '../utils/url';
+
+const { mainNav, ctaNav } = nav;
 ---
 
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
@@ -16,7 +18,7 @@ import { url } from '../utils/url';
         <nav class="flex items-center">
           {mainNav.map((item, i) => (
             <>
-              <a href={item.href} class="text-base font-body text-gray-900 hover:text-brand-500 transition-colors">
+              <a href={url(item.href)} class="text-base font-body text-gray-900 hover:text-brand-500 transition-colors">
                 {item.label}
               </a>
               {i < mainNav.length - 1 && (
@@ -26,13 +28,13 @@ import { url } from '../utils/url';
           ))}
         </nav>
         <a
-          href={ctaNav.secondary.href}
+          href={url(ctaNav.secondary.href)}
           class="inline-flex items-center justify-center rounded-xl border border-gray-900 px-5 py-2.5 text-base font-medium text-gray-900 hover:bg-gray-900 hover:text-white transition-colors"
         >
           {ctaNav.secondary.label}
         </a>
         <a
-          href={ctaNav.primary.href}
+          href={url(ctaNav.primary.href)}
           class="inline-flex items-center justify-center rounded-xl bg-brand-500 px-5 py-2.5 text-base font-semibold text-white hover:bg-brand-600 transition-colors"
         >
           {ctaNav.primary.label}
@@ -59,19 +61,19 @@ import { url } from '../utils/url';
   <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white">
     <div class="px-4 py-4 space-y-3">
       {mainNav.map((item) => (
-        <a href={item.href} class="block text-base font-medium text-gray-600 hover:text-brand-500">
+        <a href={url(item.href)} class="block text-base font-medium text-gray-600 hover:text-brand-500">
           {item.label}
         </a>
       ))}
       <hr class="border-gray-100" />
       <a
-        href={ctaNav.secondary.href}
+        href={url(ctaNav.secondary.href)}
         class="block w-full text-center rounded-xl border border-gray-900 px-4 py-2.5 text-base font-medium text-gray-900 hover:bg-gray-900 hover:text-white"
       >
         {ctaNav.secondary.label}
       </a>
       <a
-        href={ctaNav.primary.href}
+        href={url(ctaNav.primary.href)}
         class="block w-full text-center rounded-xl bg-brand-500 px-4 py-2.5 text-base font-semibold text-white hover:bg-brand-600"
       >
         {ctaNav.primary.label}

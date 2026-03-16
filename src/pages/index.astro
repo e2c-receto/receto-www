@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import faqItems from '../data/faq-home.json';
-import { plans } from '../data/pricing';
-import { ctaNav } from '../data/navigation';
+import plans from '../data/pricing.json';
+import nav from '../data/navigation.json';
 import { url } from '../utils/url';
 ---
 
@@ -27,7 +27,7 @@ import { url } from '../utils/url';
           </p>
           <div class="mt-8">
             <a
-              href={ctaNav.secondary.href}
+              href={url(nav.ctaNav.secondary.href)}
               class="inline-flex items-center justify-center rounded-[10px] bg-brand-500 px-5 py-3.5 text-lg sm:text-xl font-semibold text-white hover:bg-brand-600 transition-colors"
             >
               Demander une démo
@@ -282,7 +282,7 @@ import { url } from '../utils/url';
 
               <!-- CTA -->
               <a
-                href={plan.cta.href}
+                href={plan.cta_href}
                 class:list={[
                   "inline-flex items-center justify-center rounded-[5px] px-7 py-2.5 text-base font-normal font-lexend transition-colors w-full",
                   plan.price === null
@@ -290,7 +290,7 @@ import { url } from '../utils/url';
                     : "border-2 border-gray-50 text-gray-50 hover:bg-white/10"
                 ]}
               >
-                {plan.cta.label}
+                {plan.cta_label}
               </a>
             </div>
           </div>

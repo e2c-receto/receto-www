@@ -1,0 +1,28 @@
+{
+  "mainNav": [
+    { "label": "Application", "href": "/produit" },
+    { "label": "Tarifs", "href": "/tarifs" },
+    { "label": "À propos", "href": "/a-propos" },
+    { "label": "Blog", "href": "/blog" }
+  ],
+  "ctaNav": {
+    "primary": { "label": "Essayer gratuitement", "href": "/demo" },
+    "secondary": { "label": "Demander une démo", "href": "/demo" }
+  },
+  "footerNav": {
+    "product": [
+      { "label": "Application", "href": "/produit" },
+      { "label": "Tarifs", "href": "/tarifs" },
+      { "label": "Demander une démo", "href": "/demo" }
+    ],
+    "company": [
+      { "label": "À propos", "href": "/a-propos" },
+      { "label": "Blog", "href": "/blog" }
+    ],
+    "legal": [
+      { "label": "Mentions légales", "href": "/mentions-legales" },
+      { "label": "CGV", "href": "/cgv" },
+      { "label": "Confidentialité", "href": "/politique-confidentialite" }
+    ]
+  }
+}

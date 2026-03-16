@@ -54,6 +54,84 @@ collections:
                   - { label: Question, name: question, widget: string }
                   - { label: Réponse, name: answer, widget: text }
 
+  - name: navigation
+    label: Navigation
+    files:
+      - name: nav
+        label: Menus et CTAs
+        file: src/data/navigation.json
+        fields:
+          - label: Navigation principale
+            name: mainNav
+            widget: list
+            fields:
+              - { label: Libellé, name: label, widget: string }
+              - { label: Lien, name: href, widget: string }
+          - label: Boutons d'action (CTA)
+            name: ctaNav
+            widget: object
+            fields:
+              - label: Primaire
+                name: primary
+                widget: object
+                fields:
+                  - { label: Libellé, name: label, widget: string }
+                  - { label: Lien, name: href, widget: string }
+              - label: Secondaire
+                name: secondary
+                widget: object
+                fields:
+                  - { label: Libellé, name: label, widget: string }
+                  - { label: Lien, name: href, widget: string }
+          - label: Footer
+            name: footerNav
+            widget: object
+            fields:
+              - label: Produit
+                name: product
+                widget: list
+                fields:
+                  - { label: Libellé, name: label, widget: string }
+                  - { label: Lien, name: href, widget: string }
+              - label: Entreprise
+                name: company
+                widget: list
+                fields:
+                  - { label: Libellé, name: label, widget: string }
+                  - { label: Lien, name: href, widget: string }
+              - label: Juridique
+                name: legal
+                widget: list
+                fields:
+                  - { label: Libellé, name: label, widget: string }
+                  - { label: Lien, name: href, widget: string }
+
+  - name: pricing
+    label: Tarifs
+    files:
+      - name: plans
+        label: Plans tarifaires
+        file: src/data/pricing.json
+        fields:
+          - label: Plans
+            name: plans
+            widget: list
+            fields:
+              - { label: Nom, name: name, widget: string }
+              - { label: Prix (vide = gratuit), name: price, widget: number, required: false }
+              - { label: Prix barré, name: originalPrice, widget: number, required: false }
+              - { label: Période, name: period, widget: string, required: false }
+              - { label: Description, name: description, widget: string }
+              - { label: Sous-titre, name: subtitle, widget: string, required: false }
+              - { label: Info annuelle, name: annualInfo, widget: string, required: false }
+              - { label: Économie annuelle, name: annualSaving, widget: string, required: false }
+              - { label: Mis en avant, name: featured, widget: boolean, default: false }
+              - { label: Bouton — texte, name: cta_label, widget: string }
+              - { label: Bouton — lien, name: cta_href, widget: string }
+              - { label: Fonctionnalités actuelles, name: currentFeatures, widget: list }
+              - { label: Label futur, name: futureLabel, widget: string, required: false }
+              - { label: Fonctionnalités futures, name: futureFeatures, widget: list }
+
   - name: blog
     label: Articles
     folder: src/content/blog

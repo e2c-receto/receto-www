@@ -1,7 +1,9 @@
 ---
-import { footerNav } from '../data/navigation';
+import nav from '../data/navigation.json';
 import { url } from '../utils/url';
 import contact from '../data/contact.json';
+
+const { footerNav } = nav;
 ---
 
 <footer class="bg-gray-50 border-t border-gray-200">
@@ -45,7 +47,7 @@ import contact from '../data/contact.json';
         <div class="grid grid-cols-2 gap-x-16 gap-y-3">
           <div class="space-y-3">
             {footerNav.legal.map((item) => (
-              <a href={item.href} class="block text-xs text-gray-900 hover:text-brand-500 transition-colors">
+              <a href={url(item.href)} class="block text-xs text-gray-900 hover:text-brand-500 transition-colors">
                 {item.label}
               </a>
             ))}
@@ -53,7 +55,7 @@ import contact from '../data/contact.json';
           </div>
           <div class="space-y-3">
             {footerNav.company.map((item) => (
-              <a href={item.href} class="block text-xs text-gray-900 hover:text-brand-500 transition-colors">
+              <a href={url(item.href)} class="block text-xs text-gray-900 hover:text-brand-500 transition-colors">
                 {item.label}
               </a>
             ))}
