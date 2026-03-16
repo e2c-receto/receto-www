@@ -122,14 +122,24 @@ import { url } from '../utils/url';
             </div>
           </div>
         </div>
-        <!-- Illustration -->
-        <div class="flex justify-center lg:justify-end">
-          <img
-            src={url('/images/app-screenshot.png')}
-            alt="Capture d'écran de l'application Recèto — Bien plus qu'un food cost"
-            class="w-full max-w-sm lg:max-w-md h-auto"
-            loading="lazy"
-          />
+        <!-- Illustration : photo téléphone + card app superposée -->
+        <div class="relative flex justify-center lg:justify-end">
+          <div class="relative w-[280px] sm:w-[320px] lg:w-[340px]">
+            <!-- Photo chef en fond -->
+            <img
+              src={url('/images/mockup-phone-chef.png')}
+              alt="Chef en cuisine"
+              class="w-full h-auto rounded-[20px] shadow-lg"
+              loading="lazy"
+            />
+            <!-- Card app superposée -->
+            <img
+              src={url('/images/app-screenshot.png')}
+              alt="Capture d'écran de l'application Recèto — Bien plus qu'un food cost"
+              class="absolute -top-4 -right-16 sm:-right-20 lg:-right-24 w-[200px] sm:w-[220px] lg:w-[258px] h-auto"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </div>
