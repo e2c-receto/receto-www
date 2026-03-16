@@ -125,12 +125,12 @@ import { url } from '../utils/url';
         <!-- Illustration : carte app croppée + starburst -->
         <div class="relative flex justify-center lg:justify-end">
           <div class="relative">
-            <!-- Carte app (croppée comme sur Figma : frame 339×438 clippant le screenshot) -->
-            <div class="w-[240px] sm:w-[280px] lg:w-[339px] h-[310px] sm:h-[360px] lg:h-[438px] overflow-hidden rounded-[20px] shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+            <!-- Carte app (croppée : titre recette + 4 blocs métriques) -->
+            <div class="w-[240px] sm:w-[280px] lg:w-[339px] h-[260px] sm:h-[300px] lg:h-[370px] overflow-hidden rounded-[20px]">
               <img
                 src={url('/images/mockup-phone-chef.png')}
                 alt="Interface Recèto — fiche recette avec ratio, empreinte carbone, coût et prix de vente"
-                class="w-[106%] h-auto -ml-[3%] -translate-y-[15%]"
+                class="w-full h-full object-cover object-[center_8%]"
                 loading="lazy"
               />
             </div>
