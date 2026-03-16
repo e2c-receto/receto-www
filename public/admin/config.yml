@@ -9,6 +9,22 @@ public_folder: /images/blog
 locale: fr
 
 collections:
+  - name: settings
+    label: Paramètres
+    files:
+      - name: contact
+        label: Coordonnées
+        file: src/data/contact.json
+        fields:
+          - { label: Email, name: email, widget: string }
+          - { label: Téléphone, name: phone, widget: string }
+          - { label: Téléphone international, name: phone_international, widget: string }
+          - { label: WhatsApp (numéro), name: whatsapp, widget: string }
+          - { label: LinkedIn, name: linkedin, widget: string }
+          - { label: Instagram, name: instagram, widget: string }
+          - { label: Calendly, name: calendly, widget: string }
+          - { label: Formspree, name: formspree, widget: string }
+
   - name: blog
     label: Articles
     folder: src/content/blog
