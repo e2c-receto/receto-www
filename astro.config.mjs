@@ -10,6 +10,7 @@ export default defineConfig({
   site: isGHPages ? 'https://e2c-receto.github.io' : 'https://www.receto.fr',
   base: isGHPages ? '/receto-www' : '/',
   output: 'static',
+  trailingSlash: 'always',
   integrations: [
     sitemap({
       i18n: { defaultLocale: 'fr', locales: { fr: 'fr-FR' } },
