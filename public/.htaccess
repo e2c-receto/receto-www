@@ -1,9 +1,0 @@
-RewriteEngine On
-
-# Force HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# Force www
-RewriteCond %{HTTP_HOST} ^receto\.fr$ [NC]
-RewriteRule ^ https://www.receto.fr%{REQUEST_URI} [L,R=301]
