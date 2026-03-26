@@ -28,7 +28,7 @@ jobs:
           sudo apt-get install -y -qq lftp > /dev/null 2>&1
           lftp -u "$FTP_USER","$FTP_PASSWORD" sftp://$FTP_HOST -e "
             set sftp:auto-confirm yes;
-            mirror --reverse --delete --verbose ./dist/ /recetofr/;
+            ls;
             quit
           "
         env:
