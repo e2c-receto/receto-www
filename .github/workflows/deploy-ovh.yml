@@ -24,12 +24,14 @@ jobs:
       - run: npm run build
 
       - name: Deploy via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 21
-          protocol: ftps
-          local-dir: ./dist/
-          server-dir: ./
+        run: |
+          sudo apt-get install -y -qq lftp > /dev/null 2>&1
+          lftp -u "$FTP_USER","$FTP_PASSWORD" sftp://$FTP_HOST -e "
+            set sftp:auto-confirm yes;
+            mirror --reverse --delete --verbose ./dist/ /;
+            quit
+          "
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
