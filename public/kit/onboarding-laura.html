@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onboarding Laura — Recèto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand: #155DFC;
+    --brand-light: #e8efff;
+    --brand-dark: #0f47c7;
+    --accent: #FF6B35;
+    --success: #22c55e;
+    --surface: #ffffff;
+    --surface-alt: #f8f9fc;
+    --surface-raised: #ffffff;
+    --border: #e2e6ef;
+    --text: #1a1d26;
+    --text-secondary: #5a6178;
+    --text-muted: #8b90a0;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.1);
+    --radius: 12px;
+    --font-body: 'Lexend', sans-serif;
+    --font-display: 'DM Serif Display', serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --brand-light: #1a2744;
+      --surface: #0f1219;
+      --surface-alt: #161a24;
+      --surface-raised: #1c2130;
+      --border: #2a3040;
+      --text: #e8eaf0;
+      --text-secondary: #a0a6b8;
+      --text-muted: #6b7188;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--text);
+    background: var(--surface);
+    line-height: 1.7;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 60%, #0a2e7a 100%);
+    color: #fff;
+    padding: 3.5rem 2rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40%; right: -20%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%; left: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,107,53,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    opacity: 0.85;
+    max-width: 540px;
+  }
+
+  /* ---- INFO CARD ---- */
+  .info-grid {
+    max-width: 900px;
+    margin: -2rem auto 0;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+  .info-card {
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 1.75rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .info-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--brand);
+  }
+  .info-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  /* ---- NAV ---- */
+  .toc {
+    max-width: 900px;
+    margin: 2.5rem auto 0;
+    padding: 0 1.5rem;
+  }
+  .toc-inner {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.75rem;
+  }
+  .toc-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .toc-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.4rem;
+  }
+  .toc-list a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 400;
+    padding: 0.3rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+  }
+  .toc-list a:hover { color: var(--brand); }
+  .toc-list .toc-num {
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--brand);
+    width: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  /* ---- CONTENT ---- */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 4rem;
+  }
+
+  /* ---- SECTIONS ---- */
+  .section {
+    margin-top: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface-raised);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+  }
+  .section:hover { box-shadow: var(--shadow-md); }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.75rem;
+    cursor: pointer;
+    user-select: none;
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    color: var(--text);
+    font-family: var(--font-body);
+    transition: background 0.2s;
+  }
+  .section-header:hover { background: var(--surface-alt); }
+
+  .section-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem; height: 2.2rem;
+    background: var(--brand);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 400;
+    flex: 1;
+  }
+  .section-chevron {
+    width: 20px; height: 20px;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+  .section.open .section-chevron { transform: rotate(180deg); }
+
+  .section-body {
+    display: none;
+    padding: 0 1.75rem 1.75rem;
+  }
+  .section.open .section-body { display: block; }
+
+  /* ---- TYPOGRAPHY ---- */
+  .section-body h3 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 1.75rem 0 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--brand-light);
+  }
+  .section-body h3:first-child { margin-top: 0.5rem; }
+
+  .section-body p {
+    margin: 0.6rem 0;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+  }
+  .section-body strong { color: var(--text); font-weight: 600; }
+
+  .section-body ul, .section-body ol {
+    padding-left: 1.25rem;
+    margin: 0.5rem 0;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+  }
+  .section-body li { margin: 0.3rem 0; }
+  .section-body li strong { color: var(--text); }
+
+  /* ---- TABLES ---- */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 1rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.87rem;
+  }
+  thead {
+    background: var(--brand);
+    color: #fff;
+  }
+  thead th {
+    padding: 0.7rem 1rem;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: left;
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 0.65rem 1rem;
+    border-top: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:hover { background: var(--surface-alt); }
+  tbody tr:nth-child(even) { background: var(--surface-alt); }
+  tbody tr:nth-child(even):hover { background: var(--brand-light); }
+
+  /* ---- RECIPE BLOCK ---- */
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .recipe-card {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+  }
+  .recipe-card-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--brand);
+    margin-bottom: 0.5rem;
+  }
+  .recipe-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .recipe-card li {
+    font-size: 0.88rem;
+    padding: 0.25rem 0;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .recipe-card li::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--brand);
+    flex-shrink: 0;
+  }
+
+  /* ---- FLOW DIAGRAM ---- */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 1rem 0;
+  }
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    position: relative;
+  }
+  .flow-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 2rem;
+  }
+  .flow-dot {
+    width: 2rem; height: 2rem;
+    border-radius: 50%;
+    background: var(--brand);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .flow-line {
+    width: 2px;
+    height: 2rem;
+    background: var(--border);
+  }
+  .flow-step:last-child .flow-line { display: none; }
+  .flow-content {
+    padding: 0.35rem 0 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  .flow-content strong { color: var(--text); }
+
+  /* ---- PHRASES BLOCK ---- */
+  .phrase-block {
+    background: linear-gradient(135deg, var(--brand-light), var(--surface-alt));
+    border-left: 4px solid var(--brand);
+    border-radius: 0 10px 10px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1rem 0;
+  }
+  .phrase-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--brand);
+    margin-bottom: 0.25rem;
+  }
+  .phrase-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  /* ---- SCHEDULE ---- */
+  .schedule-day {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin: 1rem 0;
+    overflow: hidden;
+  }
+  .schedule-day-header {
+    background: var(--brand);
+    color: #fff;
+    padding: 0.6rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .schedule-day table { margin: 0; }
+  .schedule-day .table-wrap { border: none; border-radius: 0; margin: 0; }
+  .schedule-day thead { display: none; }
+  .schedule-day td:first-child {
+    font-weight: 600;
+    color: var(--brand);
+    white-space: nowrap;
+    width: 90px;
+  }
+
+  /* ---- CHECKLIST ---- */
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    margin: 0.3rem 0;
+    transition: background 0.2s;
+    cursor: pointer;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+  }
+  .checklist li:hover { background: var(--surface-alt); }
+  .checklist li.checked { opacity: 0.55; }
+  .checklist li.checked .check-label { text-decoration: line-through; }
+
+  .check-box {
+    width: 20px; height: 20px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    margin-top: 1px;
+  }
+  .checklist li.checked .check-box {
+    background: var(--success);
+    border-color: var(--success);
+  }
+  .check-box svg {
+    width: 12px; height: 12px;
+    stroke: #fff;
+    stroke-width: 3;
+    fill: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .checklist li.checked .check-box svg { opacity: 1; }
+
+  /* ---- CONTACTS GRID ---- */
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+  .contact-card {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    transition: box-shadow 0.2s;
+  }
+  .contact-card:hover { box-shadow: var(--shadow-md); }
+  .contact-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+  .contact-role {
+    font-size: 0.78rem;
+    color: var(--brand);
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+  .contact-when {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ---- ESCALADE ---- */
+  .escalade-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  .escalade-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+  }
+  .escalade-list li:last-child { border-bottom: none; }
+  .escalade-trigger {
+    font-weight: 600;
+    color: var(--text);
+    flex-shrink: 0;
+  }
+  .escalade-arrow {
+    color: var(--brand);
+    font-weight: 500;
+  }
+
+  /* ---- FOOTER ---- */
+  .footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ---- PRINT ---- */
+  @media print {
+    body { font-size: 12px; }
+    .hero { padding: 2rem; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .section { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+    .section-body { display: block !important; }
+    .section-chevron { display: none; }
+    .toc { display: none; }
+    .info-grid { margin-top: 1rem; }
+    thead { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 640px) {
+    .hero { padding: 2.5rem 1.25rem 2rem; }
+    .hero h1 { font-size: 1.75rem; }
+    .info-card { grid-template-columns: 1fr 1fr; padding: 1.25rem; }
+    .section-header { padding: 1rem 1.25rem; }
+    .section-body { padding: 0 1.25rem 1.25rem; }
+    .section-title { font-size: 1.1rem; }
+    .recipe-grid { grid-template-columns: 1fr; }
+    .contacts-grid { grid-template-columns: 1fr; }
+    table { font-size: 0.8rem; }
+    thead th, tbody td { padding: 0.5rem 0.6rem; }
+  }
+
+  /* ---- ANIMATION ---- */
+  .section { animation: fadeUp 0.4s ease both; }
+  .section:nth-child(1) { animation-delay: 0.05s; }
+  .section:nth-child(2) { animation-delay: 0.1s; }
+  .section:nth-child(3) { animation-delay: 0.15s; }
+  .section:nth-child(4) { animation-delay: 0.2s; }
+  .section:nth-child(5) { animation-delay: 0.25s; }
+  .section:nth-child(6) { animation-delay: 0.3s; }
+  .section:nth-child(7) { animation-delay: 0.35s; }
+  .section:nth-child(8) { animation-delay: 0.4s; }
+  .section:nth-child(9) { animation-delay: 0.45s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Recèto — ECO2CHEF</div>
+    <h1>Onboarding <em>Laura</em></h1>
+    <p class="hero-sub">Plan d'intégration et ressources pour le démarrage du 9 mars 2026 — Commerciale freelance terrain</p>
+  </div>
+</div>
+
+<!-- INFO CARD -->
+<div class="info-grid">
+  <div class="info-card">
+    <div class="info-item">
+      <span class="info-label">Rôle</span>
+      <span class="info-value">Commerciale freelance terrain</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Email</span>
+      <span class="info-value">laura.v@eco2chef.fr</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Démarrage</span>
+      <span class="info-value">9 mars 2026</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Rémunération</span>
+      <span class="info-value">~150€ / 250€ par vente + 60€ BDD</span>
+    </div>
+    <div class="info-item">
+      <span class="info-label">Zone</span>
+      <span class="info-value">PACA prioritaire, ARA secondaire</span>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<nav class="toc">
+  <div class="toc-inner">
+    <div class="toc-title">Sommaire</div>
+    <ul class="toc-list">
+      <li><a href="#s1"><span class="toc-num">1</span> Accès et outils</a></li>
+      <li><a href="#s2"><span class="toc-num">2</span> Ce que Laura doit connaître</a></li>
+      <li><a href="#s3"><span class="toc-num">3</span> Documents commerciaux</a></li>
+      <li><a href="#s4"><span class="toc-num">4</span> Processus de vente</a></li>
+      <li><a href="#s5"><span class="toc-num">5</span> Outils au quotidien</a></li>
+      <li><a href="#s6"><span class="toc-num">6</span> Semaine 1 — Plan de démarrage</a></li>
+      <li><a href="#s7"><span class="toc-num">7</span> Objectifs mois 1</a></li>
+      <li><a href="#s8"><span class="toc-num">8</span> Support et escalade</a></li>
+      <li><a href="#s9"><span class="toc-num">9</span> Checklist avant le 9 mars</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="content">
+
+  <!-- SECTION 1 -->
+  <div class="section open" id="s1">
+    <button class="section-header" onclick="toggleSection(this)">
+      <span class="section-num">1</span>
+      <span class="section-title">Accès et outils</span>
+      <svg class="section-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </button>
+    <div class="section-body">
+      <h3>Comptes à créer / transmettre</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Outil</th><th>Usage</th><th>Accès</th><th>Statut</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Email</strong></td><td>laura.v@eco2chef.fr</td><td>Admin OVH</td><td>&#10003; Créé</td></tr>
+            <tr><td><strong>Recèto app</strong></td><td>Compte démo produit</td><td>app.receto.fr</td><td>À configurer</td></tr>
+            <tr><td><strong>Calendly</strong></td><td>Prise de RDV prospects</td><td>calendly.com</td><td>&#10003; Créé</td></tr>
+            <tr><td><strong>CRM</strong></td><td>Suivi prospects / pipeline</td><td>HubSpot Free</td><td>&#10003; Créé + pipeline</td></tr>
+            <tr><td><strong>LinkedIn</strong></td><td>Prospection directe</td><td>Profil Laura</td><td>À briefer</td></tr>
+            <tr><td><strong>WhatsApp</strong></td><td>Communication équipe</td><td>Groupe existant</td><td>À vérifier</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Compte démo Recèto</h3>
+      <p>Le compte démo doit être pré-configuré avec les recettes suivantes <strong>(décision Emmanuel + Vincent, 05/03/2026)</strong> :</p>
+      <div class="recipe-grid">
+        <div class="recipe-card">
+          <div class="recipe-card-title">Plats principaux — 4 hamburgers</div>
+          <ul>
+            <li>Hamburger bœuf</li>
+            <li>Hamburger poisson</li>
+            <li>Hamburger poulet</li>
+            <li>Hamburger végétarien</li>
+          </ul>
+        </div>
+        <div class="recipe-card">
+          <div class="recipe-card-title">Accompagnements</div>
+          <ul>
+            <li>Pommes sautées</li>
+            <li>Coleslaw</li>
+          </ul>
+        </div>
+        <div class="recipe-card">
+          <div class="recipe-card-title">Entrée</div>
+          <ul>
+            <li>Salade grecque</li>
+          </ul>
+        </div>
+        <div class="recipe-card">
+          <div class="recipe-card-title">Dessert</div>
+          <ul>
+            <li>Fondant au chocolat et crème anglaise</li>
+          </ul>
+        </div>
+      </div>
+      <p>Tous les produits nécessaires à ces recettes doivent être créés avec prix et empreinte carbone visibles.</p>
+      <p><strong>Identifiants :</strong> URL : https://app.receto.fr — Login et mot de passe à définir (utiliser un des 6 comptes masterclass existants).</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section" id="s2">
+    <button class="section-header" onclick="toggleSection(this)">
+      <span class="section-num">2</span>
+      <span class="section-title">Ce que Laura doit connaître</span>
+      <svg class="section-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </button>
+    <div class="section-body">
+      <h3>Le produit en 2 minutes</h3>
+      <p><strong>Recèto</strong> aide les restaurateurs à :</p>
+      <ol>
+        <li><strong>Calculer le coût réel</strong> de chaque recette (coût matière, coefficient, marge)</li>
+        <li><strong>Suivre les prix fournisseurs</strong> et être alertés des hausses</li>
+        <li><strong>Connaître l'empreinte carbone</strong> de leurs plats (base Agribalyse/ADEME)</li>
+      </ol>
+      <p><strong>Ce qui nous différencie :</strong> Seul outil combinant rentabilité + carbone. Koust, Melba, Inpulse font la rentabilité. ChefsTouch fait du basique à 1,99€. Ecotable fait le carbone à 75€. <strong>Personne ne fait les deux.</strong></p>
+
+      <h3>Grille tarifaire</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Offre</th><th>Prix</th><th>Inclus</th><th>Cible</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Découverte</strong></td><td>Gratuit</td><td>3 recettes, 2 fournisseurs, aperçu carbone</td><td>Test, conviction</td></tr>
+            <tr><td><strong>Essentiel</strong></td><td>39€/mois</td><td>25 recettes, 10 fournisseurs, 3 scans/mois, export PDF</td><td>Petite structure</td></tr>
+            <tr><td><strong>Pro</strong></td><td>69€/mois</td><td>Illimité, multi-établissement, support prioritaire</td><td>Resto indépendant, petits groupes</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul>
+        <li>Sans engagement, résiliable à tout moment</li>
+        <li>L'empreinte carbone est dans <strong>toutes les offres</strong> (c'est notre différenciateur)</li>
+        <li>La segmentation par limites quantitatives crée un upgrade naturel</li>
+      </ul>
+
+      <h3>Commission Laura</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Offre vendue</th><th>Commission</th><th>Bonus</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Essentiel</strong> (39€/mois)</td><td>~150€</td><td>+100€ si upgrade vers Pro</td></tr>
+            <tr><td><strong>Pro</strong> (69€/mois)</td><td>250€</td><td>—</td></tr>
+            <tr><td><strong>Création BDD</strong></td><td>+60€</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Références clients</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Client</th><th>Secteur</th><th>Lieu</th><th>Utilisation</th></tr></thead>
+          <tbody>
+            <tr><td><strong>La Fabuleuse Cantine</strong></td><td>Transformation invendus bio</td><td>Saint-Étienne</td><td>Rentabilité + carbone</td></tr>
+            <tr><td><strong>Chez Françoise</strong></td><td>Restaurant</td><td>Avignon</td><td>Client référence</td></tr>
+            <tr><td><strong>CCI de Vaucluse</strong></td><td>Partenariat pilote</td><td>Avignon</td><td>Test en restaurant</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section" id="s3">
+    <button class="section-header" onclick="toggleSection(this)">
+      <span class="section-num">3</span>
+      <span class="section-title">Documents commerciaux</span>
+      <svg class="section-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </button>
+    <div class="section-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Document</th><th>Usage</th><th>Priorité</th></tr></thead>
+          <tbody>
+            <tr><td><strong>pitch.md</strong></td><td>Scripts 30s / 2min / 10min</td><td>Apprendre par cœur</td></tr>
+            <tr><td><strong>objections.md</strong></td><td>Réponses aux freins classiques</td><td>Lire et relire</td></tr>
+            <tr><td><strong>demo-guide.md</strong></td><td>Script pour démo 20 min</td><td>Pratiquer avant le terrain</td></tr>
+            <tr><td><strong>one-pager.md</strong></td><td>À laisser après RDV</td><td>Imprimer 20 exemplaires</td></tr>
+            <tr><td><strong>persona.md</strong></td><td>Profils cibles et anti-cibles</td><td>Lire une fois</td></tr>
+            <tr><td><strong>kit-prescripteur.md</strong></td><td>Pour les comptables/CCI</td><td>Si prescripteur rencontré</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Les 3 phrases à retenir</h3>
+      <div class="phrase-block">
+        <div class="phrase-num">Accroche</div>
+        <div class="phrase-text">"Savez-vous vraiment combien vous gagnez par plat ?"</div>
+      </div>
+      <div class="phrase-block">
+        <div class="phrase-num">Différenciateur</div>
+        <div class="phrase-text">"Recèto est le seul outil qui combine rentabilité ET empreinte carbone."</div>
+      </div>
+      <div class="phrase-block">
+        <div class="phrase-num">Closing</div>
+        <div class="phrase-text">"39€ par mois, c'est 1,30€ par jour — moins qu'un café. Et vous pouvez tester gratuitement."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section" id="s4">
+    <button class="section-header" onclick="toggleSection(this)">
+      <span class="section-num">4</span>
+      <span class="section-title">Processus de vente</span>
+      <svg class="section-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </button>
+    <div class="section-body">
+      <h3>Parcours type d'un prospect</h3>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-marker"><div class="flow-dot">1</div><div class="flow-line"></div></div>
+          <div class="flow-content"><strong>Premier contact</strong> — LinkedIn, email, terrain, prescripteur</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-marker"><div class="flow-dot">2</div><div class="flow-line"></div></div>
+          <div class="flow-content"><strong>Appel découverte</strong> (5-10 min) — Qualifier le besoin</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-marker"><div class="flow-dot">3</div><div class="flow-line"></div></div>
+          <div class="flow-content"><strong>Démo produit</strong> (20 min) — Montrer la valeur</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-marker"><div class="flow-dot">4</div><div class="flow-line"></div></div>
+          <div class="flow-content"><strong>Essai Découverte</strong> (gratuit) — Le prospect teste seul</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-marker"><div class="flow-dot">5</div><div class="flow-line"></div></div>
+          <div class="flow-content"><strong>Relance</strong> J+3, J+7 — Accompagner la prise en main</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-marker"><div class="flow-dot">6</div><div class="flow-line"></div></div>
+          <div class="flow-content"><strong>Closing</strong> — Essentiel ou Pro</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-marker"><div class="flow-dot">7</div></div>
+          <div class="flow-content"><strong>Suivi J+30</strong> — Satisfaction, témoignage</div>
+        </div>
+      </div>
+
+      <h3>Qualification rapide (3 questions)</h3>
+      <ol>
+        <li><strong>"Comment calculez-vous vos coûts matière aujourd'hui ?"</strong>
+          <ul>
+            <li>"À la main / tableur / pas vraiment" → Bon prospect</li>
+            <li>"J'ai déjà Koust/Melba" → Concurrent en place, qualifier l'intérêt carbone</li>
+          </ul>
+        </li>
+        <li><strong>"Combien de recettes avez-vous à la carte ?"</strong>
+          <ul>
+            <li>10-50 → Cible idéale</li>
+            <li>5-10 → Petit mais possible</li>
+            <li>100+ → Trop gros, peut-être Pro</li>
+          </ul>
+        </li>
+        <li><strong>"L'empreinte carbone, c'est un sujet pour vous ?"</strong>
+          <ul>
+            <li>"Oui" → Insister sur le différenciateur</li>
+            <li>"Pas vraiment" → Rester sur la rentabilité, le carbone est un bonus</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h3>Cible géographique prioritaire</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Zone</th><th>Priorité</th><th>Raison</th></tr></thead>
+          <tbody>
+            <tr><td><strong>PACA</strong> (Avignon, Marseille, Aix)</td><td>P1</td><td>Siège ECO2CHEF, CCI partenaire</td></tr>
+            <tr><td><strong>Auvergne-Rhône-Alpes</strong> (Lyon, Saint-Étienne)</td><td>P2</td><td>La Fabuleuse Cantine, AURUS</td></tr>
+            <tr><td><strong>Occitanie</strong> (Montpellier, Toulouse)</td><td>P3</td><td>Marché bio/local fort</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Sources de prospects</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Source</th><th>Méthode</th><th>Volume</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ecotable</strong></td><td>Annuaire restaurants labellisés</td><td>~266 restaurants</td></tr>
+            <tr><td><strong>Bon pour le Climat</strong></td><td>Annuaire restaurants engagés</td><td>~100 restaurants</td></tr>
+            <tr><td><strong>Google Maps</strong></td><td>"restaurant bio [ville]", "restaurant local"</td><td>Élevé</td></tr>
+            <tr><td><strong>LinkedIn</strong></td><td>Recherche "chef cuisinier" + filtres géo</td><td>Moyen</td></tr>
+            <tr><td><strong>Instagram</strong></td><td>#restaurantbio #circuitcourt #cuisinelocale</td><td>Moyen</td></tr>
+            <tr><td><strong>Prescripteurs</strong></td><td>Comptables CHR → recommandation</td><td>Qualifié</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section" id="s5">
+    <button class="section-header" onclick="toggleSection(this)">
+      <span class="section-num">5</span>
+      <span class="section-title">Outils au quotidien</span>
+      <svg class="section-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </button>
+    <div class="section-body">
+      <h3>CRM — Pipeline de vente (HubSpot)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Étape</th><th>Définition</th><th>Action suivante</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Nouveau</strong></td><td>Contact identifié, pas encore contacté</td><td>Premier message/appel</td></tr>
+            <tr><td><strong>Contacté</strong></td><td>Premier échange fait</td><td>Qualifier + proposer démo</td></tr>
+            <tr><td><strong>Démo planifiée</strong></td><td>RDV calé</td><td>Préparer la démo</td></tr>
+            <tr><td><strong>Démo faite</strong></td><td>Démo réalisée</td><td>Relancer J+3</td></tr>
+            <tr><td><strong>Essai en cours</strong></td><td>Compte Découverte créé</td><td>Accompagner J+7</td></tr>
+            <tr><td><strong>Négociation</strong></td><td>Intéressé, hésite</td><td>Traiter objections</td></tr>
+            <tr><td><strong>Gagné</strong></td><td>Client signé</td><td>Bienvenue + facturation</td></tr>
+            <tr><td><strong>Perdu</strong></td><td>Refus ou silence</td><td>Nurturing 2 mois</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Calendly — Créneaux de démo</h3>
+      <ul>
+        <li>Mardi, mercredi, jeudi : 10h-12h et 14h-16h</li>
+        <li>Durée : 20 minutes</li>
+        <li>Buffer : 10 minutes entre chaque</li>
+      </ul>
+
+      <h3>Reporting hebdomadaire</h3>
+      <p>Chaque vendredi, Laura envoie un récap à l'équipe :</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Métrique</th><th>Semaine N</th></tr></thead>
+          <tbody>
+            <tr><td>Contacts initiés</td><td>—</td></tr>
+            <tr><td>Appels découverte</td><td>—</td></tr>
+            <tr><td>Démos réalisées</td><td>—</td></tr>
+            <tr><td>Essais démarrés</td><td>—</td></tr>
+            <tr><td>Ventes signées</td><td>—</td></tr>
+            <tr><td>Objections récurrentes</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section" id="s6">
+    <button class="section-header" onclick="toggleSection(this)">
+      <span class="section-num">6</span>
+      <span class="section-title">Semaine 1 — Plan de démarrage (9-14 mars)</span>
+      <svg class="section-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </button>
+    <div class="section-body">
+      <div class="schedule-day">
+        <div class="schedule-day-header">Jour 1 — Lundi 9 mars</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Heure</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>9h-10h</td><td>Call d'intégration avec Emmanuel (produit, stratégie, positionnement)</td></tr>
+              <tr><td>10h-11h</td><td>Prise en main du CRM + Calendly</td></tr>
+              <tr><td>11h-12h</td><td>Lecture du kit commercial (pitch.md, objections.md)</td></tr>
+              <tr><td>14h-15h</td><td>Démo guidée du produit (Emmanuel montre, Laura observe)</td></tr>
+              <tr><td>15h-16h</td><td>Première simulation de démo (Laura présente, Emmanuel feedback)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="schedule-day">
+        <div class="schedule-day-header">Jour 2 — Mardi 10 mars</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Heure</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>9h-10h</td><td>Identification de 20 prospects (Ecotable + Google Maps)</td></tr>
+              <tr><td>10h-12h</td><td>Premiers messages LinkedIn (10 demandes de connexion)</td></tr>
+              <tr><td>14h-16h</td><td>Premiers appels (5 appels, objectif : 1 démo planifiée)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="schedule-day">
+        <div class="schedule-day-header">Jours 3-5 — Mercredi à vendredi</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th></th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td></td><td>Continuer la prospection (objectif : 10 contacts/jour)</td></tr>
+              <tr><td></td><td>Réaliser les premières démos</td></tr>
+              <tr><td></td><td>Reporting vendredi soir</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h3>Objectifs semaine 1</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Métrique</th><th>Objectif</th></tr></thead>
+          <tbody>
+            <tr><td>Contacts initiés</td><td><strong>30</strong></td></tr>
+            <tr><td>Appels découverte</td><td><strong>10</strong></td></tr>
+            <tr><td>Démos planifiées</td><td><strong>3</strong></td></tr>
+            <tr><td>Essais démarrés</td><td><strong>1</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section" id="s7">
+    <button class="section-header" onclick="toggleSection(this)">
+      <span class="section-num">7</span>
+      <span class="section-title">Objectifs mois 1 (mars 2026)</span>
+      <svg class="section-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </button>
+    <div class="section-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Métrique</th><th>Objectif</th></tr></thead>
+          <tbody>
+            <tr><td>Contacts initiés</td><td><strong>100</strong></td></tr>
+            <tr><td>Appels découverte</td><td><strong>30</strong></td></tr>
+            <tr><td>Démos réalisées</td><td><strong>15</strong></td></tr>
+            <tr><td>Essais Découverte démarrés</td><td><strong>8</strong></td></tr>
+            <tr><td>Clients signés (Essentiel ou Pro)</td><td><strong>3</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>KPIs de conversion à suivre</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Étape</th><th>Taux cible</th></tr></thead>
+          <tbody>
+            <tr><td>Contact → Appel</td><td><strong>30%</strong></td></tr>
+            <tr><td>Appel → Démo</td><td><strong>50%</strong></td></tr>
+            <tr><td>Démo → Essai</td><td><strong>50%</strong></td></tr>
+            <tr><td>Essai → Client</td><td><strong>30%</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="section" id="s8">
+    <button class="section-header" onclick="toggleSection(this)">
+      <span class="section-num">8</span>
+      <span class="section-title">Support et escalade</span>
+      <svg class="section-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </button>
+    <div class="section-body">
+      <h3>Contacts équipe</h3>
+      <div class="contacts-grid">
+        <div class="contact-card">
+          <div class="contact-name">Emmanuel</div>
+          <div class="contact-role">CEO / Produit & Stratégie</div>
+          <div class="contact-when">Questions produit, positionnement, stratégie commerciale</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-name">Baptiste</div>
+          <div class="contact-role">DG / Tech</div>
+          <div class="contact-when">Bugs, questions techniques, accès outils</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-name">Vincent</div>
+          <div class="contact-role">Stratégie commerciale</div>
+          <div class="contact-when">Prospects complexes, négociation</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-name">Jérôme</div>
+          <div class="contact-role">Design</div>
+          <div class="contact-when">Supports visuels, one-pager papier</div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-name">Benjamin</div>
+          <div class="contact-role">Dev (Yzalis)</div>
+          <div class="contact-when">Bugs techniques, questions API (via Baptiste)</div>
+        </div>
+      </div>
+
+      <h3>Escalade</h3>
+      <ul class="escalade-list">
+        <li><span class="escalade-trigger">Question produit / positionnement</span> <span class="escalade-arrow">→</span> Message Emmanuel</li>
+        <li><span class="escalade-trigger">Bug technique</span> <span class="escalade-arrow">→</span> Message Baptiste → Benjamin si nécessaire</li>
+        <li><span class="escalade-trigger">Prospect > 5 établissements</span> <span class="escalade-arrow">→</span> Briefer Emmanuel avant la démo</li>
+        <li><span class="escalade-trigger">Prescripteur intéressé</span> <span class="escalade-arrow">→</span> Transmettre à Emmanuel</li>
+        <li><span class="escalade-trigger">Objection non couverte</span> <span class="escalade-arrow">→</span> Noter et remonter en reporting hebdo</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 9 -->
+  <div class="section open" id="s9">
+    <button class="section-header" onclick="toggleSection(this)">
+      <span class="section-num">9</span>
+      <span class="section-title">Checklist avant le 9 mars</span>
+      <svg class="section-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </button>
+    <div class="section-body">
+      <ul class="checklist" id="checklist">
+        <li onclick="toggleCheck(this, 0)"><div class="check-box"><svg viewBox="0 0 14 14"><polyline points="2 7 6 11 12 3"/></svg></div><span class="check-label">Compte email laura.v@eco2chef.fr fonctionnel</span></li>
+        <li onclick="toggleCheck(this, 1)"><div class="check-box"><svg viewBox="0 0 14 14"><polyline points="2 7 6 11 12 3"/></svg></div><span class="check-label">Accès CRM (HubSpot) avec pipeline configuré</span></li>
+        <li onclick="toggleCheck(this, 2)"><div class="check-box"><svg viewBox="0 0 14 14"><polyline points="2 7 6 11 12 3"/></svg></div><span class="check-label">Accès Calendly avec créneaux définis</span></li>
+        <li onclick="toggleCheck(this, 3)"><div class="check-box"><svg viewBox="0 0 14 14"><polyline points="2 7 6 11 12 3"/></svg></div><span class="check-label">Compte démo Recèto configuré (ingrédients, recettes, factures)</span></li>
+        <li onclick="toggleCheck(this, 4)"><div class="check-box"><svg viewBox="0 0 14 14"><polyline points="2 7 6 11 12 3"/></svg></div><span class="check-label">Kit commercial lu et compris (pitch, objections, demo-guide)</span></li>
+        <li onclick="toggleCheck(this, 5)"><div class="check-box"><svg viewBox="0 0 14 14"><polyline points="2 7 6 11 12 3"/></svg></div><span class="check-label">20 exemplaires one-pager imprimés</span></li>
+        <li onclick="toggleCheck(this, 6)"><div class="check-box"><svg viewBox="0 0 14 14"><polyline points="2 7 6 11 12 3"/></svg></div><span class="check-label">Liste de 50 premiers prospects identifiés</span></li>
+        <li onclick="toggleCheck(this, 7)"><div class="check-box"><svg viewBox="0 0 14 14"><polyline points="2 7 6 11 12 3"/></svg></div><span class="check-label">Call d'intégration planifié (9 mars 9h)</span></li>
+        <li onclick="toggleCheck(this, 8)"><div class="check-box"><svg viewBox="0 0 14 14"><polyline points="2 7 6 11 12 3"/></svg></div><span class="check-label">Numéro de téléphone professionnel défini</span></li>
+        <li onclick="toggleCheck(this, 9)"><div class="check-box"><svg viewBox="0 0 14 14"><polyline points="2 7 6 11 12 3"/></svg></div><span class="check-label">Photo profil LinkedIn à jour (mention ECO2CHEF/Recèto si pertinent)</span></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Document préparé par Baptiste — Mars 2026<br>
+  Call d'intégration du 9 mars piloté par Emmanuel (CEO) — Baptiste en support technique
+</div>
+
+<script>
+function toggleSection(btn) {
+  btn.closest('.section').classList.toggle('open');
+}
+
+// Checklist persistence
+const STORAGE_KEY = 'onboarding-laura-checklist';
+
+function loadChecklist() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const items = document.querySelectorAll('#checklist li');
+    saved.forEach(i => { if (items[i]) items[i].classList.add('checked'); });
+  } catch(e) {}
+}
+
+function toggleCheck(li, index) {
+  li.classList.toggle('checked');
+  const items = document.querySelectorAll('#checklist li');
+  const checked = [];
+  items.forEach((item, i) => { if (item.classList.contains('checked')) checked.push(i); });
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(checked)); } catch(e) {}
+}
+
+loadChecklist();
+</script>
+</body>
+</html>
