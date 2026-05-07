@@ -62,7 +62,8 @@ const canonical = Astro.url.href;
   <link rel="preload" href={url('/fonts/Lexend-Variable.woff2')} as="font" type="font/woff2" crossorigin />
 
   <!-- Netlify Identity widget (Decap CMS auth) -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 
   <!-- JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify({
