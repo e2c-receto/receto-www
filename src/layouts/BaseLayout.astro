@@ -61,6 +61,9 @@ const canonical = Astro.url.href;
   <link rel="preload" href={url('/fonts/Irregardless-Black.woff2')} as="font" type="font/woff2" crossorigin />
   <link rel="preload" href={url('/fonts/Lexend-Variable.woff2')} as="font" type="font/woff2" crossorigin />
 
+  <!-- Netlify Identity widget (Decap CMS auth) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
   <!-- JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -90,5 +93,18 @@ const canonical = Astro.url.href;
   </main>
   <Footer />
   <CookieBanner />
+
+  <!-- Decap CMS redirect after invite/login -->
+  <script is:inline>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>
