@@ -6,7 +6,7 @@ description: Une étude portugaise sur des plats servis en restauration
   traditionnelle montre que l'empreinte carbone d'un repas dépend moins d'un
   ingrédient unique que de la composition globale de l'assiette.
 image: /images/blog/portugal.jpg
-draft: true
+draft: false
 ---
 Une étude menée récemment au Portugal sur des plats servis en restauration traditionnelle apporte un éclairage intéressant sur l'empreinte carbone des repas.
 
