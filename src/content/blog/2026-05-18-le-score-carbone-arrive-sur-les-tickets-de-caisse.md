@@ -5,7 +5,7 @@ description: Certaines enseignes affichent désormais l'empreinte carbone des
   achats sur les tickets de caisse. Au-delà des produits, c'est la composition
   globale du panier qui détermine l'impact environnemental.
 image: /images/blog/score_carbone.jpg
-draft: true
+draft: false
 ---
 Certaines enseignes commencent à afficher l'empreinte carbone des achats directement sur les tickets de caisse ou dans leurs applications. Le principe est simple : donner une estimation de l'impact environnemental d'un panier alimentaire à partir de bases de données comme Agribalyse.
 
