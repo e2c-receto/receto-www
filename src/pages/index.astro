@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PressSection from '../components/PressSection.astro';
 import faqItems from '../data/faq-home.json';
 import plans from '../data/pricing.json';
 import nav from '../data/navigation.json';
@@ -310,6 +311,9 @@ import { url } from '../utils/url';
       </div>
     </div>
   </section>
+
+  <!-- Ils parlent de nous (presse) — s'affiche automatiquement à partir de 2 articles -->
+  <PressSection />
 
   <!-- FAQ -->
   <section class="py-20 lg:py-24 bg-gray-50">
