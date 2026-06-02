@@ -1,0 +1,52 @@
+---
+import press from '../data/press.json';
+import { url } from '../utils/url';
+
+// Seuil d'affichage : la section ne s'affiche qu'à partir de 2 retombées presse.
+// Tant qu'il n'y a qu'un article (Le Dauphiné), la section reste masquée même en prod.
+// Dès que La Provence est ajouté à press.json, la section apparaît automatiquement.
+const MIN_ITEMS = 2;
+const articles = [...press].sort((a, b) => b.date.localeCompare(a.date));
+const show = articles.length >= MIN_ITEMS;
+---
+
+{show && (
+  <section class="py-20 lg:py-28 bg-gray-50">
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-[5.5rem] xl:leading-[5rem] text-gray-950 text-center mb-16">
+        Ils parlent de nous
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {articles.map((a) => (
+          <a
+            href={a.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex flex-col rounded-[20px] border border-gray-200 bg-white p-8 transition-shadow hover:shadow-lg"
+          >
+            <div class="flex items-center justify-between gap-4 mb-6 h-12">
+              {a.logo ? (
+                <img src={url(a.logo)} alt={a.outlet} class="h-10 w-auto object-contain" loading="lazy" />
+              ) : (
+                <span class="font-heading text-2xl text-gray-950">{a.outlet}</span>
+              )}
+              <time datetime={a.date} class="text-sm text-gray-500 whitespace-nowrap">{a.dateLabel}</time>
+            </div>
+            <h3 class="text-xl lg:text-2xl font-medium text-gray-950 leading-snug group-hover:text-brand-600 transition-colors">
+              {a.title}
+            </h3>
+            {a.excerpt && (
+              <p class="mt-4 text-gray-600 leading-relaxed flex-1">{a.excerpt}</p>
+            )}
+            <span class="mt-6 inline-flex items-center gap-2 text-base font-semibold text-brand-600">
+              Lire l'article
+              <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
