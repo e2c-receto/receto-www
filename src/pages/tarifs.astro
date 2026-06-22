@@ -133,23 +133,6 @@ import { url } from '../utils/url';
                       </div>
                     ))}
                   </div>
-
-                  {plan.futureLabel && (
-                    <>
-                      <div class="inline-block bg-gray-950 rounded px-1.5 py-1.5">
-                        <span class="font-lexend font-medium text-[8px] leading-[4px] text-orange-50">
-                          {plan.futureLabel}
-                        </span>
-                      </div>
-                      <div class="space-y-2">
-                        {plan.futureFeatures.map((feature) => (
-                          <div class="flex items-center gap-1">
-                            <span class="font-lexend font-light text-sm leading-[14px] text-gray-50">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </>
-                  )}
                 </div>
               </div>
 

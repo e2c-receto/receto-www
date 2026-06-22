@@ -3,20 +3,15 @@
     "name": "Découverte",
     "price": null,
     "description": "Tester gratuitement Recèto sans engagement pendant 14 jours",
-    "subtitle": "Sans engagement et sans carte bancaire",
+    "subtitle": "14 jours, sans engagement et sans carte bancaire",
     "featured": false,
     "cta_label": "Essayer gratuitement",
     "cta_href": "/demo",
     "currentFeatures": [
       "3 Recettes",
       "2 Fournisseurs",
-      "Empreinte carbone"
-    ],
-    "futureLabel": "Disponible mi-2026",
-    "futureFeatures": [
-      "Scans de factures illimités",
-      "Support",
-      "20 Scans de factures",
+      "Empreinte carbone",
+      "Scan de factures",
       "Export PDF",
       "Historique et comparaison"
     ]
@@ -35,14 +30,11 @@
     "currentFeatures": [
       "Recettes illimitées",
       "Fournisseurs illimités",
-      "Empreinte carbone",
-      "Support"
-    ],
-    "futureLabel": "Disponible mi-2026",
-    "futureFeatures": [
       "Scans de factures illimités",
+      "Empreinte carbone",
       "Export PDF",
-      "Historique et comparaison"
+      "Historique et comparaison",
+      "Support"
     ]
   }
 ]
