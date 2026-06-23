@@ -42,7 +42,7 @@ Recèto calcule automatiquement le coût matière et l’empreinte carbone de vo
 | Rentabilité + Carbone | Rentabilité uniquement |
 | Base Agribalyse intégrée | Pas de données environnementales |
 | Interface pour cuisiniers | Interfaces complexes |
-| 70€/mois transparent | Tarifs sur devis |
+| 69€/mois, tout compris | Sur devis ou par établissement |
 
 ---
 
@@ -50,8 +50,8 @@ Recèto calcule automatiquement le coût matière et l’empreinte carbone de vo
 
 | Offre | Prix |
 | --- | --- |
-| Abonnement mensuel | **70€/mois** (engagement 12 mois) |
-| Essai gratuit | **14 jours**, sans engagement |
+| Abonnement | **69€/mois** (annuel, engagement 12 mois) |
+| Essai gratuit | **14 jours**, sans engagement ni carte bancaire |
 | Option création BDD | À partir de 290€ (saisie initiale produits/fournisseurs) |
 
 **ROI** : Si Recèto vous permet d’identifier un seul plat mal pricé, vous rentabilisez votre abonnement dès le premier mois.

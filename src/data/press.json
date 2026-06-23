@@ -1,6 +1,7 @@
 [
   {
     "outlet": "La Provence",
+    "logo": "/images/press/la-provence.svg",
     "title": "Rendre la restauration rentable et durable : à Avignon, l'appli Recèto s'attaque au casse-tête de l'empreinte carbone",
     "date": "2026-06-23",
     "dateLabel": "23 juin 2026",
@@ -9,6 +10,7 @@
   },
   {
     "outlet": "Le Dauphiné Libéré",
+    "logo": "/images/press/le-dauphine.png",
     "title": "Recèto, l'appli qui aide les chefs à réduire empreinte carbone et dépenses",
     "date": "2026-05-10",
     "dateLabel": "10 mai 2026",
